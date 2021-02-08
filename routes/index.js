@@ -8,6 +8,11 @@ router.get('/', (req, res, next) => {
   res.render('home', { title: 'Hello World!' });
 });
 
+router.get('/shuffle', (req, res, next) => {
+  res.render('shuffle-result');
+
+});
+
 router.get('/private', routeGuard, (req, res, next) => {
   res.render('private');
 });

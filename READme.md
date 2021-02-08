@@ -19,7 +19,7 @@ POST      /playlist/:id/update                 Update Playlist              Subm
 GET       /playlist/:id/delete                 Deletion-confirmation        Displaying deletion confirmation 
 POST      /playlist/:id/delete                 Delete Playlist              Deleting playlist
 POST      /sign-out                            Redirect to homepage         Signing out
-Error GET /error Display error message
+GET       /error                               Error                        Display error message
 
 
 ## Views  
@@ -41,3 +41,4 @@ error                       (error)
 
 New episode notification
 Users can follow each other's playlist
+Voting feature
