@@ -5,6 +5,7 @@ const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const nodemailer = require('nodemailer');
 const { env } = require('process');
+const axios = require('axios');
 const listenNotesApiKey = process.env.LISTENNOTES_API_KEY;
 
 // Send confirmation email to the user
@@ -39,23 +40,27 @@ transport
     console.log(error);
   });
 
-
 router.get('/', (req, res, next) => {
   res.render('home', { title: 'Hello World!' });
 });
 
+router.get('/about', (req, res, next) => {
+  res.render('about', { title: 'About us' });
+});
+
 router.get('/shuffle/:id', (req, res, next) => {
-  const id = request.params.id;
+  const id = req.params.id;
   const apiUrl = `https://listen-api.listennotes.com/api/v2/?apikey=${listenNotesApiKey}&i=${id}`;
   axios
-    .get(apiUrl)
-    .then(result => {
+    // not sure if this is right...
+    .getRandom(apiUrl)
+    .then((result) => {
       const data = result.data;
       const episode = data;
-      response.render('home-result', { episode });
+      res.render('single-episode', { episode });
     })
-    .catch(error => {
-      response.render('error');
+    .catch((error) => {
+      res.render('error');
     });
 });
 

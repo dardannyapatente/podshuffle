@@ -18,5 +18,4 @@ const basicAuthenticationDeserializer = (req, res, next) => {
   }
 };
 
-
 module.exports = basicAuthenticationDeserializer;

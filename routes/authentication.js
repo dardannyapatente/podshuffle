@@ -8,13 +8,14 @@ const router = new Router();
 const uploadMiddleware = require('./../middleware/file-upload');
 
 router.get('/sign-up', (req, res, next) => {
-  res.render('sign-up');
+  res.render('authentication/sign-up');
 });
 
 router.post('/sign-up', 
-uploadMiddleware.single('picture'), 
-(req, res, next) => {
+uploadMiddleware.single('picture', (req, res, next) => {
+
   const { name, email, password } = req.body;
+
   bcryptjs
     .hash(password, 10)
     User.findOne({
@@ -49,7 +50,7 @@ uploadMiddleware.single('picture'),
 });
 
 router.get('/sign-in', (req, res, next) => {
-  res.render('sign-in');
+  res.render('authentication/sign-in');
 });
 
 router.post('/sign-in', (req, res, next) => {
