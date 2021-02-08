@@ -2,7 +2,7 @@
 
 const User = require('./../models/user');
 
-module.exports = (req, res, next) => {
+const basicAuthenticationDeserializer = (req, res, next) => {
   const userId = req.session.userId;
   if (userId) {
     User.findById(userId)
@@ -17,3 +17,6 @@ module.exports = (req, res, next) => {
     next();
   }
 };
+
+
+module.exports = basicAuthenticationDeserializer;

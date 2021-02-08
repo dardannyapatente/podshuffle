@@ -8,7 +8,7 @@ POST      /authentication/sign-up              Sign-up                      Subm
 GET       /authentication/sign-in              Sign-in                      Displaying the sign in form
 POST      /authentication/sign-in              Sign-in                      Submiting the sign in form
 GET       /index/home                          Home                         Displaying the homepage
-POST      /index/shuffle                       Home                         Submiting the shuffle button
+POST      /index/shuffle/:id                       Home                         Submiting the shuffle button
 GET       /index/shuffle-result                Home-Shuffle-result          Displaying the shuffle result
 GET       /user/:id                            Profile                      Displaying the profile
 GET       /playlist/create                     Create-form                  Display the form to create the playlist
@@ -42,3 +42,11 @@ error                       (error)
 New episode notification
 Users can follow each other's playlist
 Voting feature
+
+
+
+# Changes made on Monday, 08/02:
+- Added the Listen Notes API key to index.js, .env and Heroku;
+- Created an email to set up the email confirmation -> hello.podcastapp@gmail.com
+Also added the email in the .env file and Heroku (not sure if we have to add all those keys in Heroku, doing so just to make sure). Installed the nodemailer package. We still have to create the email message or view.
+- Added a js file to the fold "Middleware" to be able to upload the picture. Installed multer/cloudinary/multer-storage-cloudinary packages. Set up for the profile picture is completed. 

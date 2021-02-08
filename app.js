@@ -15,7 +15,6 @@ const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const playlistRouter = require('./routes/playlist');
 
-
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -42,7 +41,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 15 * 24 * 60 * 60 * 1000,
+      maxAge: 15 * 24 * 60 * 60 * 1000, // 15 days
       httpOnly: true
     },
     store: new (connectMongo(expressSession))({
@@ -57,6 +56,7 @@ app.use(bindUserToViewLocals);
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/playlist', playlistRouter);
+
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

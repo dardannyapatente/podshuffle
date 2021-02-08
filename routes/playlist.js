@@ -5,7 +5,7 @@ const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const Playlist = require('./../models/playlist');
 
-outer.get('/create', routeGuard, (req, res, next) => {
+router.get('/create', routeGuard, (req, res, next) => {
   res.render('playlist/create-form');
 });
 
