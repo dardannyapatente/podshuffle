@@ -64,8 +64,8 @@ router.get('/shuffle/:id', (req, res, next) => {
     });
 });
 
-router.get('/private', routeGuard, (req, res, next) => {
-  res.render('private');
+router.get('/profile', routeGuard, (req, res, next) => {
+  res.render('profile');
 });
 
 module.exports = router;

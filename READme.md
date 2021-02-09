@@ -26,14 +26,12 @@ GET /error Error Display error message
 
 home page (with shuffle button)
 about page (simple text content)
-//deleted// home-result (shows the shuffle result and player with a link to single episode)
 sign-in (with sign-in form)  
 sign-up (with sign-up form with a file upload)
 profile (user information, logout link, history and playlists)  
 single-episode (showing the episode info with audio player, podcast description and link to add/create a playlist)
 create (form for the playlist - name and description )  
 single-playlist (with update and delete button)
-single-playlist-update (with update form)
 deletion-confirmation (display deletion confirmation page)
 error (error)
 

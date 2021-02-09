@@ -11,44 +11,43 @@ router.get('/sign-up', (req, res, next) => {
   res.render('authentication/sign-up');
 });
 
-router.post('/sign-up', 
-uploadMiddleware.single('picture'), 
-(req, res, next) => {
+router.post(
+  '/sign-up',
+  uploadMiddleware.single('picture'),
+  (req, res, next) => {
+    const data = req.body;
 
-  const { name, email, password } = req.body;
-
-  bcryptjs
-    .hash(password, 10)
     User.findOne({
-      email: email
+      email: data.email
     })
-      .then(user => {
+      .then((user) => {
         if (user) {
           throw new Error('There is already a user with that email.');
         } else {
-          return bcryptjs.hash(password, 10);
+          return bcryptjs.hash(data.password, 10);
         }
       })
-    .then((hash) => {
-      let picture;
-      if (req.file) {
-        picture = req.file.path;
-      }
-      return User.create({
-        name,
-        email,
-        passwordHashAndSalt: hash,
-        picture
+      .then((passwordHashAndSalt) => {
+        let picture;
+        if (req.file) {
+          picture = req.file.path;
+        }
+        return User.create({
+          name: data.name,
+          email: data.email,
+          passwordHashAndSalt: passwordHashAndSalt,
+          picture
+        });
+      })
+      .then((user) => {
+        req.session.userId = user._id;
+        res.redirect('/profile');
+      })
+      .catch((error) => {
+        next(error);
       });
-    })
-    .then((user) => {
-      req.session.userId = user._id;
-      res.render('profile');
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
+  }
+);
 
 router.get('/sign-in', (req, res, next) => {
   res.render('authentication/sign-in');
@@ -56,14 +55,14 @@ router.get('/sign-in', (req, res, next) => {
 
 router.post('/sign-in', (req, res, next) => {
   let user;
-  const { email, password } = req.body;
-  User.findOne({ email })
+  const data = req.body;
+  User.findOne({ email: data.email })
     .then((document) => {
       if (!document) {
         return Promise.reject(new Error("There's no user with that email."));
       } else {
         user = document;
-        return bcryptjs.compare(password, user.passwordHashAndSalt);
+        return bcryptjs.compare(data.password, user.passwordHashAndSalt);
       }
     })
     .then((result) => {
