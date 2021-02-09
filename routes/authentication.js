@@ -12,7 +12,8 @@ router.get('/sign-up', (req, res, next) => {
 });
 
 router.post('/sign-up', 
-uploadMiddleware.single('picture', (req, res, next) => {
+uploadMiddleware.single('picture'), 
+(req, res, next) => {
 
   const { name, email, password } = req.body;
 

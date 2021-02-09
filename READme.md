@@ -57,7 +57,11 @@ Voting feature
 - reviewed your code and basically took my time to understand everything
 - corrected a few errors in authentication:js and index.js (required axios for example). There are some synthax errors left.
 - added the about page (so we don't forget it later)
-- removed the home-result page : to me, it makes more sense if we go directly to the random episode (single-episode page) after hitting shuffle (like in the ironbeers lab)
+- removed the home-result page: to me, it makes more sense if we go directly to the random episode (single-episode page) after hitting shuffle (like in the ironbeers lab)
 - added the "random" factor to the API request (not so sure about that part so let me know)
 - currently working on the wireframes, should be ready for tomorrow before class, then we'll create the views based on them.
 - can you paste somewhere the link the Heroku deploy please ? Thanks :)
+
+# Here is the link to the Heroku deploy:
+
+https://dashboard.heroku.com/apps/ironhack-podcast-app/deploy/github
