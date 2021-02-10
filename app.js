@@ -14,6 +14,9 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const playlistRouter = require('./routes/playlist');
+const hbs = require('hbs');
+
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 const app = express();
 
@@ -56,7 +59,6 @@ app.use(bindUserToViewLocals);
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/playlist', playlistRouter);
-
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

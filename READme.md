@@ -63,3 +63,9 @@ Voting feature
 # Here is the link to the Heroku deploy:
 
 https://dashboard.heroku.com/apps/ironhack-podcast-app/deploy/github
+
+# Changes made by Dardannya on Wednesday, 10/02:
+
+- installed hbs to set partials (navbar)
+- added an async function to get random podcast (following the suggestion in the documentation)
+- added some info in the views based on the wireframes (couldn't check if it's working)

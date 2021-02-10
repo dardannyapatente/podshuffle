@@ -3,22 +3,26 @@
 const express = require('express');
 const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
+const uploadMiddleware = require('./../middleware/file-upload');
 const Playlist = require('./../models/playlist');
 
 router.get('/create', routeGuard, (req, res, next) => {
   res.render('playlist/create-form');
 });
 
-router.post('/create', routeGuard, (req, res, next) => {
+router.post('/create', 
+uploadMiddleware.single('image'), 
+routeGuard, (req, res, next) => {
   const data = req.body;
   Playlist.create({
     name: data.name,
-    description: data.description
+    description: data.description,
     // creator: req.user._id
     // creator: req.session.userId
+    image: image
   })
     .then((playlist) => {
-      res.render('playlist/single-playlist');
+      res.render('playlist/single-playlist', { playlist });
     })
     .catch((error) => {
       next(error);
@@ -55,7 +59,7 @@ router.post('/:id/update', routeGuard, (req, res, next) => {
     description: data.description
   })
     .then((playlist) => {
-      res.render('playlist/single-playlist');
+      res.render('playlist/single-playlist', { playlist });
     })
     .catch((error) => {
       next(error);

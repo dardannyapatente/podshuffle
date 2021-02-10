@@ -17,6 +17,7 @@ router.post(
   (req, res, next) => {
     const data = req.body;
 
+    bcryptjs.hash(passwordHashAndSalt, 10);
     User.findOne({
       email: data.email
     })
@@ -41,7 +42,7 @@ router.post(
       })
       .then((user) => {
         req.session.userId = user._id;
-        res.redirect('/profile');
+        res.render('profile');
       })
       .catch((error) => {
         next(error);
@@ -56,7 +57,7 @@ router.get('/sign-in', (req, res, next) => {
 router.post('/sign-in', (req, res, next) => {
   let user;
   const data = req.body;
-  User.findOne({ email: data.email })
+  User.findOne({ email })
     .then((document) => {
       if (!document) {
         return Promise.reject(new Error("There's no user with that email."));

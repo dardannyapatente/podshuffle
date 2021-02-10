@@ -1,5 +1,27 @@
 {{#if user.picture}}
-  <img src="{{user.picture}}" alt="{{user.name}}" class="profile-picture" />
+<img src="{{user.picture}}" alt="{{user.name}}" class="profile-picture" />
 {{/if}}
-<h1>Hello, {{user.name}}</h1>
-<p>Your email is <strong>{{user.email}}</strong>.</p>
+<h4>{{user.name}}</h4>
+<h4>{{user.email}}</h4>
+
+
+<h3>Favorite episodes</h3>
+{{#each episodes}}
+    <img src="{{image}}" alt="{{name}}"><a href="/single-episode/{{_id}}"></a>
+{{/each}}
+
+<h3>My playlists</h3>
+{{#each playlists}}
+  <img src="{{image}}" alt="{{name}}"><a href="/playlist/{{_id}}"></a>
+{{/each}}
+
+<h3>History</h3>
+{{#each episodes}}
+    <img src="{{image}}" alt="{{name}}"><a href="/single-episode"></a>
+{{/each}}
+
+
+<form action="/authentication/sign-out" method="POST"><button>Sign Out</button>
+
+
+{{!-- Check how we can set a default image for the user --}}

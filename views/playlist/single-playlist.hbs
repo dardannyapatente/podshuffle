@@ -1,0 +1,15 @@
+{{#if playlist.image}}
+<img src="{{playlist.image}}" alt="{{playlist.name}}">
+{{/if}}
+<h3>{{playlist.description}}</h3>
+
+<button><a href="/playlist/{{playlist._id}}/delete">Delete</a></button>
+<button><a href="/playlist/{{playlist._id}}/update">Update</a></button>
+
+<ul {{#each playlist.episode}}>
+    <li>
+       <a href="/episode/{{_id}}"></a> 
+    </li>
+</ul>
+{{/each}}
+
