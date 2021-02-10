@@ -16,8 +16,6 @@ router.post(
   uploadMiddleware.single('picture'),
   (req, res, next) => {
     const data = req.body;
-
-    bcryptjs.hash(passwordHashAndSalt, 10);
     User.findOne({
       email: data.email
     })
@@ -42,7 +40,7 @@ router.post(
       })
       .then((user) => {
         req.session.userId = user._id;
-        res.render('profile');
+        res.redirect('/profile');
       })
       .catch((error) => {
         next(error);

@@ -69,3 +69,12 @@ https://dashboard.heroku.com/apps/ironhack-podcast-app/deploy/github
 - installed hbs to set partials (navbar)
 - added an async function to get random podcast (following the suggestion in the documentation)
 - added some info in the views based on the wireframes (couldn't check if it's working)
+
+# For next class:
+
+- How to get each info related to playlists, episodes, etc? (Profile view).
+- Check how to update the playlist without leaving the page.
+- How to make a pop up delete confirmation
+- Forgot your password link
+- Check how we can set a default image for the user
+- Make the user authenticate to use the shuffle button (req.user and if statement, I guess)

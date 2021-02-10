@@ -49,16 +49,20 @@ router.get('/about', (req, res, next) => {
   res.render('about', { title: 'About us' });
 });
 
-router.get('/shuffle', async (req, res, next) => {
-try {
-  const response = await unirest.get('https://listen-api.listennotes.com/api/v2/just_listen')
- .header('X-ListenAPI-Key', `${listenNotesApiKey}`)
- response.toJSON();
- res.render('single-episode');
-}
-  catch(error) {
-   next(error);
-  };
+router.get('/single-episode', routeGuard, (req, res, next) => {
+  res.render('single-episode');
+});
+
+router.get('/shuffle', routeGuard, async (req, res, next) => {
+  try {
+    const response = await unirest
+      .get('https://listen-api.listennotes.com/api/v2/just_listen')
+      .header('X-ListenAPI-Key', `${listenNotesApiKey}`);
+    response.toJSON();
+    res.redirect('/single-episode');
+  } catch (error) {
+    next(error);
+  }
 });
 
 // router.get('/shuffle', (req, res, next) => {
@@ -76,19 +80,34 @@ router.get('/profile', routeGuard, (req, res, next) => {
   res.render('profile');
 });
 
-
 router.get('/episode/:id', async (req, res, next) => {
   const id = req.params.id;
   try {
-    const response = await unirest.get(`https://listen-api.listennotes.com/api/v2/episodes/${id}?show_transcript=1`)
-   .header('X-ListenAPI-Key', `${listenNotesApiKey}`)
-   response.toJSON();
-   res.redirect(`/episode/${_id}`);
+    const response = await unirest
+      .get(
+        `https://listen-api.listennotes.com/api/v2/episodes/${id}?show_transcript=1`
+      )
+      .header('X-ListenAPI-Key', `${listenNotesApiKey}`);
+    response.toJSON();
+    res.redirect(`/episode/${_id}`);
+  } catch (error) {
+    next(error);
   }
-  catch(error) {
-   next(error);
-  };
 });
 
+router.post('/episode/:id/delete', async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const response = await unirest
+      .get(
+        `https://listen-api.listennotes.com/api/v2/episodes/${id}?show_transcript=1`
+      )
+      .header('X-ListenAPI-Key', `${listenNotesApiKey}`);
+    response.toJSON();
+    res.redirect(`/episode/${_id}`);
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
