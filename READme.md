@@ -78,3 +78,5 @@ https://dashboard.heroku.com/apps/ironhack-podcast-app/deploy/github
 - Forgot your password link
 - Check how we can set a default image for the user
 - Make the user authenticate to use the shuffle button (req.user and if statement, I guess)
+- There are really no methods in this API?
+- How do we get the genres id and parents id in an order? So that we can implement the filter option
