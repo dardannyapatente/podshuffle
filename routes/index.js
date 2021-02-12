@@ -49,11 +49,7 @@ router.get('/about', (req, res, next) => {
   res.render('about', { title: 'About us' });
 });
 
-router.get('/single-episode', (req, res, next) => {
-  res.render('single-episode');
-});
-
-router.get('/shuffle', async (req, res, next) => {
+router.get('/result-shuffle', async (req, res, next) => {
   try {
     const response = await axios.get(
       'https://listen-api.listennotes.com/api/v2/just_listen',
@@ -74,60 +70,36 @@ router.get('/profile', routeGuard, (req, res, next) => {
   res.render('profile');
 });
 
-router.get('/episode/:id', async (req, res, next) => {
-  const id = req.params.id;
-  try {
-    const response = await unirest
-      .get(
-        `https://listen-api.listennotes.com/api/v2/episodes/${id}?show_transcript=1`
-      )
-      .header('X-ListenAPI-Key', `${listenNotesApiKey}`);
-    response.toJSON();
-    res.redirect(`/episode/${_id}`);
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.post('/episode/:id/delete', async (req, res, next) => {
-  const id = req.params.id;
-  try {
-    const response = await unirest
-      .get(
-        `https://listen-api.listennotes.com/api/v2/episodes/${id}?show_transcript=1`
-      )
-      .header('X-ListenAPI-Key', `${listenNotesApiKey}`);
-    response.toJSON();
-    res.redirect(`/episode/${_id}`);
-  } catch (error) {
-    next(error);
-  }
-});
-
 router.get('/home-auth', routeGuard, (req, res, next) => {
-  res.render('home-auth')
+  res.render('home-auth', { title: 'Homepage' });
 });
 
-router.get('/shuffle-filtered', routeGuard, (req, res, next) => {
+router.get('/result-shuffle-filtered', async (req, res, next) => {
   const keywordQuery = req.query.q;
   const length = req.query.length_max;
   const genreId = req.query.genre_ids;
   const language = req.query.language;
-  const apiUrl = `https://listen-api.listennotes.com/api/v2/search?q=${keywordQuery}&type=episode&len_max=${length}&genre_ids=${genreId}&language=${language}`;
-  axios
-    .get(apiUrl)
-    .then(result => {
-      const data = result.data;
-      const episode = data;
-      res.render('single-episode', { title: 'Homepage' }, { episode });
+  try {
+    const response = await axios.get(
+      `https://listen-api.listennotes.com/api/v2/search?q=${keywordQuery}&type=episode&len_max=${length}&genre_ids=${genreId}&language=${language}`,
+      {
+        headers: {
+          'X-ListenAPI-Key': `${listenNotesApiKey}`
+        }
+      }
+    );
+    const episode = response.data;
+      res.render('single-episode', { 
+        keywordQuery: keywordQuery,
+        length: length,
+        genreId: genreId,
+        language: language,
+        episode: episode 
     })
-    .catch(error => {
-      res.render('error');
-    });
+  } catch (error) {
+    next(error);
+  }
 });
-
-
-
 
 // router.get('/home', routeGuard, (req, res, next) => {
 //   const topLevelGenres = genres.filter((genre) => {
@@ -149,6 +121,37 @@ router.get('/shuffle-filtered', routeGuard, (req, res, next) => {
 //   const subgenreId = req.params.subgenreId;
 //   // Call to the api getting single podcast with genre: subgenreId
 //   res.render('play-podcast', { podcast });
+// });
+
+
+// router.get('/episode/:id', async (req, res, next) => {
+//   const id = req.params.id;
+//   try {
+//     const response = await unirest
+//       .get(
+//         `https://listen-api.listennotes.com/api/v2/episodes/${id}?show_transcript=1`
+//       )
+//       .header('X-ListenAPI-Key', `${listenNotesApiKey}`);
+//     response.toJSON();
+//     res.redirect(`/episode/${_id}`);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+// router.post('/episode/:id/delete', async (req, res, next) => {
+//   const id = req.params.id;
+//   try {
+//     const response = await unirest
+//       .get(
+//         `https://listen-api.listennotes.com/api/v2/episodes/${id}?show_transcript=1`
+//       )
+//       .header('X-ListenAPI-Key', `${listenNotesApiKey}`);
+//     response.toJSON();
+//     res.redirect(`/episode/${_id}`);
+//   } catch (error) {
+//     next(error);
+//   }
 // });
 
 module.exports = router;

@@ -1,6 +1,11 @@
 <h1>Welcome to PodShuffle</h1>
 <br>
+<h3>Select the filter option below and get your random Podcast</h3>
 <br>
+
+<form method="GET" action="/result-shuffle-filtered">
+ 	<input type="search" id="inputKeyword" placeholder="Keyword" name="q" />
+</form>
 
 <label for="input-category">Category</label>
 <select name="category" id="input-category" required>
@@ -22,32 +27,19 @@
   <option value="science">Science</option>
 </select>
 
-<form class="form-inline" method="GET" action="/shuffle-filtered">
- 	<input
- 		type="text"
- 		id="inputKeyword"
-        placeholder="Keyword"
-        name="q"
- 	/>
-</form>
-
 <label for="input-language">Language</label>
 <select name="language" id="input-language" required>
   <option value="" selected disabled>Select</option> <!-- Display empty placeholder value-->
-    {{#each language}}
+    {{#each languages}}
     <option value="{{this}}">{{this}}</option>
     {{/each}}
 </select>
 
-<label for="input-duration">Duration</label>
-<select name="duration" id="input-duration" required>
-  <option value="" selected disabled>Duration</option> <!-- Display empty placeholder value-->
-  <option value="six-minutes">0-6 minutes</option>
-  <option value="twelve-minutes">6-12 minutes</option>
-  <option value="eighteen-minutes">12-18 minutes</option>
-  <option value="plus-eighteen-minutes">+18 minutes</option>
-</select>
+<form method="GET" action="/result-shuffle-filtered">
+<label for="minutes">Duration</label>
+ 	<input type="text" id="inputDuration" placeholder="Minutes" name="duration" />
+</form>
 
 
-<button><a href="/shuffle-filtered">Shuffle</a></button>
+<button><a href="/result-shuffle-filtered">Shuffle</a></button>
 
