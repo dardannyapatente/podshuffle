@@ -5,9 +5,9 @@ const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const nodemailer = require('nodemailer');
 const { env } = require('process');
-const axios = require('axios');
 const listenNotesApiKey = process.env.LISTENNOTES_API_KEY;
-const unirest = require('unirest');
+const axios = require('axios');
+const genres = require('./../genres.json');
 
 // Send confirmation email to the user
 
@@ -49,32 +49,26 @@ router.get('/about', (req, res, next) => {
   res.render('about', { title: 'About us' });
 });
 
-router.get('/single-episode', routeGuard, (req, res, next) => {
+router.get('/single-episode', (req, res, next) => {
   res.render('single-episode');
 });
 
-router.get('/shuffle', routeGuard, async (req, res, next) => {
+router.get('/shuffle', async (req, res, next) => {
   try {
-    const response = await unirest
-      .get('https://listen-api.listennotes.com/api/v2/just_listen')
-      .header('X-ListenAPI-Key', `${listenNotesApiKey}`);
-    response.toJSON();
-    res.redirect('/single-episode');
+    const response = await axios.get(
+      'https://listen-api.listennotes.com/api/v2/just_listen',
+      {
+        headers: {
+          'X-ListenAPI-Key': `${listenNotesApiKey}`
+        }
+      }
+    );
+    const episode = response.data;
+    res.render('single-episode', { episode });
   } catch (error) {
     next(error);
   }
 });
-
-// router.get('/shuffle', (req, res, next) => {
-//   const apiUrl = `https://listen-api.listennotes.com/api/v2/just_listen/?apikey=${listenNotesApiKey}`;
-//   axios.request(apiUrl)
-//     .then((episode) => {
-//       res.render('single-episode', episode[0]);
-//     })
-//     .catch((error) => {
-//       res.render('error');
-//     });
-// });
 
 router.get('/profile', routeGuard, (req, res, next) => {
   res.render('profile');
@@ -109,5 +103,52 @@ router.post('/episode/:id/delete', async (req, res, next) => {
     next(error);
   }
 });
+
+router.get('/home-auth', routeGuard, (req, res, next) => {
+  res.render('home-auth')
+});
+
+router.get('/shuffle-filtered', routeGuard, (req, res, next) => {
+  const keywordQuery = req.query.q;
+  const length = req.query.length_max;
+  const genreId = req.query.genre_ids;
+  const language = req.query.language;
+  const apiUrl = `https://listen-api.listennotes.com/api/v2/search?q=${keywordQuery}&type=episode&len_max=${length}&genre_ids=${genreId}&language=${language}`;
+  axios
+    .get(apiUrl)
+    .then(result => {
+      const data = result.data;
+      const episode = data;
+      res.render('single-episode', { title: 'Homepage' }, { episode });
+    })
+    .catch(error => {
+      res.render('error');
+    });
+});
+
+
+
+
+// router.get('/home', routeGuard, (req, res, next) => {
+//   const topLevelGenres = genres.filter((genre) => {
+//     return genre.parent_id === 67;
+//   });
+//   // Renders list of anchor tags taking user to /genres/id of the genre
+//   res.render('home-auth-genres', { genres: topLevelGenres });
+// });
+
+// router.get('/genres/:genreId', routeGuard, (req, res, next) => {
+//   const genreId = req.params.genreId;
+//   const subgenres = genres.filter((genre) => {
+//     return genre.parent_id === id;
+//   });
+//   res.render('home-auth-subgenres', { subgenres: subgenres });
+// });
+
+// router.get('/generate-random/:subgenreId', routeGuard, (req, res, next) => {
+//   const subgenreId = req.params.subgenreId;
+//   // Call to the api getting single podcast with genre: subgenreId
+//   res.render('play-podcast', { podcast });
+// });
 
 module.exports = router;

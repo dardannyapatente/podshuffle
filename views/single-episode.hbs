@@ -1,13 +1,16 @@
 <div>
-<img src="{{image}}" alt="{{title}}">
+<img src="{{episode.image}}" alt="{{episode.title}}">
 </div>
 <button>Add to playlist</button>
 
 
-<h3>{{title}}</h3>
-<h4><a href="">{{podcast.publisher}}</a></h4>
-<h5>{{description}}</h5>
+<h3>{{episode.title}}</h3>
+<h4><a href="">{{episode.podcast.publisher}}</a></h4>
+<h5>{{episode.description}}</h5>
 
+{{#if user}}
+<button><a href="/shuffle-filtered">Shuffle again</a></button>
+{{/if}}
 
 
 

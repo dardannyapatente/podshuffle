@@ -1,0 +1,53 @@
+<h1>Welcome to PodShuffle</h1>
+<br>
+<br>
+
+<label for="input-category">Category</label>
+<select name="category" id="input-category" required>
+  <option value="" selected disabled>Choose your topic</option> <!-- Display empty placeholder value-->
+  <option value="fiction">Fiction</option>
+  <option value="education">Education</option>
+  <option value="society-and-culture">Society & Culture</option>
+  <option value="history">History</option>
+  <option value="music">Music</option>
+  <option value="health-and-fitness">Health & Fitness</option>
+  <option value="news">News</option>
+  <option value="religion-and-spirituality">Religion & Spirituality</option>
+  <option value="technology">Technology</option>
+  <option value="entertainment">Entertainment</option>
+  <option value="sports">Sports</option>
+  <option value="arts">Arts</option>
+  <option value="business">Business</option>
+  <option value="politics">Politics</option>
+  <option value="science">Science</option>
+</select>
+
+<form class="form-inline" method="GET" action="/shuffle-filtered">
+ 	<input
+ 		type="text"
+ 		id="inputKeyword"
+        placeholder="Keyword"
+        name="q"
+ 	/>
+</form>
+
+<label for="input-language">Language</label>
+<select name="language" id="input-language" required>
+  <option value="" selected disabled>Select</option> <!-- Display empty placeholder value-->
+    {{#each language}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+</select>
+
+<label for="input-duration">Duration</label>
+<select name="duration" id="input-duration" required>
+  <option value="" selected disabled>Duration</option> <!-- Display empty placeholder value-->
+  <option value="six-minutes">0-6 minutes</option>
+  <option value="twelve-minutes">6-12 minutes</option>
+  <option value="eighteen-minutes">12-18 minutes</option>
+  <option value="plus-eighteen-minutes">+18 minutes</option>
+</select>
+
+
+<button><a href="/shuffle-filtered">Shuffle</a></button>
+

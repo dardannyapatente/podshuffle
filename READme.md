@@ -72,11 +72,14 @@ https://dashboard.heroku.com/apps/ironhack-podcast-app/deploy/github
 
 # For next class:
 
+- Shuffle to display the random episode (single-episode page) -> linking in the API
+- How do we get the genres id and parents id in an order, so that we can implement the filter option
+- Make the user authenticate to use the shuffle button (req.user and if statement, I guess)
+
 - How to get each info related to playlists, episodes, etc? (Profile view).
+- There are really no methods in this API?
+
 - Check how to update the playlist without leaving the page.
 - How to make a pop up delete confirmation
 - Forgot your password link
 - Check how we can set a default image for the user
-- Make the user authenticate to use the shuffle button (req.user and if statement, I guess)
-- There are really no methods in this API?
-- How do we get the genres id and parents id in an order? So that we can implement the filter option
