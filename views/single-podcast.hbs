@@ -1,9 +1,17 @@
 <div>
-<img src="{{episode.podcast.image}}" alt="{{episode.podcast.title}}">
+<img src="{{podcast.image}}" alt="{{podcast.title}}">
 </div>
-<button>Add to playlist</button>
+
+<h3>{{podcast.title}}</h3>
+<h3>{{podcast.total_episodes}}</h3>
+<h4>{{podcast.publisher}}</h4>
 
 
-<h3>{{episode.podcast.title}}</h3>
-<h4><a href="">{{episode.podcast.publisher}}</a></h4>
+<div class="episode-list">
+    {{podcast.episodes.[0,10]}}
+</div>
+
 {{!-- <h5>{{episode.description}}</h5> --}}
+
+{{!-- Side page with single-episode and single-podcast --}}
+

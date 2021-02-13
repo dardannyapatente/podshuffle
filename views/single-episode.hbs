@@ -2,7 +2,7 @@
 <img src="{{episode.image}}" alt="{{episode.title}}">
 </div>
 {{#if user}}
-<button><a href="/playlist/add-to-playlist">Add to playlist</button></a>
+<button><a href="/playlist/create">Add to playlist</button></a>
 {{/if}}
 
 <audio controls autoplay preload="metadata" style=" width:300px;">
@@ -11,7 +11,7 @@
 </audio><br />
 
 <h3>{{episode.title}}</h3>
-<h4><a href="">{{episode.podcast.publisher}}</a></h4>
+<h4><a href="/podcast/{{_id}}">View podcast info</a></h4>
 <h5>{{episode.description}}</h5>
 
 {{#if user}}

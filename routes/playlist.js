@@ -5,7 +5,6 @@ const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const uploadMiddleware = require('./../middleware/file-upload');
 const Playlist = require('./../models/playlist');
-const Episode = require('./../models/episode');
 
 router.get('/create', routeGuard, (req, res, next) => {
   res.render('playlist/create-form');
@@ -22,11 +21,9 @@ router.post(
       description: data.description,
       // creator: req.user._id
       // creator: req.session.userId
-      image: image,
-      episodes: episodes
     })
       .then((playlist) => {
-        res.render('playlist/single-playlist', { playlist });
+        res.redirect(`/playlist/${playlist._id}`);
       })
       .catch((error) => {
         next(error);
@@ -93,17 +90,17 @@ router.post('/:id/delete', routeGuard, (req, res, next) => {
     });
 });
 
-router.get('/add-to-playlist', (req, res) => {
-  const id = req.params.id;
-  Playlist.findById(id)
-    .populate('episodes')
-    .then((episodes) => {
-      console.log(episodes);
-      res.render('single-playlist', { episodes });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
+// router.get('/add-to-playlist', (req, res) => {
+//   const id = req.params.id;
+//   Playlist.findById(id)
+//     .populate('episodes')
+//     .then((episodes) => {
+//       console.log(episodes);
+//       res.render('single-playlist', { episodes });
+//     })
+//     .catch((error) => {
+//       next(error);
+//     });
+// });
 
 module.exports = router;

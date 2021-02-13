@@ -5,6 +5,7 @@ const { Router } = require('express');
 const bcryptjs = require('bcryptjs');
 const User = require('./../models/user');
 const router = new Router();
+const nodemailer = require('nodemailer');
 const uploadMiddleware = require('./../middleware/file-upload');
 
 router.get('/sign-up', (req, res, next) => {
@@ -42,9 +43,35 @@ router.post(
         req.session.userId = user._id;
         res.redirect('/profile');
       })
-      .catch((error) => {
-        next(error);
-      });
+      .then(() => {
+        const transport = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: process.env.GMAIL_ADDRESS,
+            pass: process.env.GMAIL_PASSWORD
+          }
+        });
+        
+        transport
+          .sendMail({
+            from: process.env.GMAIL_ADDRESS,
+            to: process.env.GMAIL_ADDRESS,
+            subject: 'Welcome to PodSuffle',
+            html: `
+            <html> 
+                <body>
+                    <h2>Welcome to PodSuffle</h2>
+                </body>
+            </html>
+        `
+          })
+          .then((result) => {
+            console.log('Email was sent.');
+          })
+          .catch((error) => {
+            console.log('There was an error sending email.');
+          });
+      })
   }
 );
 
