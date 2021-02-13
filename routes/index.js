@@ -89,16 +89,15 @@ router.get('/result-shuffle-filtered', async (req, res, next) => {
         }
       }
     );
-    const episode = response.data;
+    const episodeObject = response.data;
+    console.log(keywordQuery);
     res.render('single-episode', {
-      keywordQuery: keywordQuery
+      keywordQuery: keywordQuery, episode: episodeObject.results[Math.floor(Math.random()*episodeObject.results.length)]
     });
     //
     //length: length,
     //genreId: genreId,
     //language: language,
-    //episode: episode
-    console.log(episode);
   } catch (error) {
     next(error);
   }

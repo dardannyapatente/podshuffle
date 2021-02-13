@@ -1,8 +1,14 @@
 <div>
 <img src="{{episode.image}}" alt="{{episode.title}}">
 </div>
-<button>Add to playlist</button>
+{{#if user}}
+<button><a href="/playlist/add-to-playlist">Add to playlist</button></a>
+{{/if}}
 
+<audio controls autoplay preload="metadata" style=" width:300px;">
+	<source src={{episode.audio}} type="audio/mpeg" >
+	Play
+</audio><br />
 
 <h3>{{episode.title}}</h3>
 <h4><a href="">{{episode.podcast.publisher}}</a></h4>

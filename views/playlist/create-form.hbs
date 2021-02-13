@@ -1,0 +1,19 @@
+<form method="POST" enctype="multipart/form-data">
+  <label for="input-name">Name</label>
+  <input type="text" id="input-name-playlist" name="name" placeholder="Name" required/>
+
+  <label for="input-description">Description</label>
+  <input type="text-area" id="input-description" name="playlist-description" placeholder="Descript" required/>
+
+  {{!-- <label for="input-image">Image</label>
+  <input type="file" id="input-image" name="image" accept="image/png, image/jpeg"> --}}
+  {{!-- Check how to fetch the image to be used for the creation of playlist --}}
+
+ <button>Create</button>
+</form>
+
+
+{{#if playlist}}
+<a href="/{{_id}}/update">{{playlist.image}}</a>
+{{playlist.name}}
+{{/if}}

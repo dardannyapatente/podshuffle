@@ -13,7 +13,11 @@ const playlistSchema = new mongoose.Schema({
   },
   image: {
     type: String
-  }
+  },
+  episodes: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Episode"
+  }]
 });
 
 const Playlist = mongoose.model('Playlist', playlistSchema);
