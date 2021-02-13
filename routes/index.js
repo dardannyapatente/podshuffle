@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 const { env } = require('process');
 const listenNotesApiKey = process.env.LISTENNOTES_API_KEY;
 const axios = require('axios');
-const genres = require('./../genres.json');
+//onst genres = require('./../genres.json');
 
 // Send confirmation email to the user
 
@@ -76,12 +76,13 @@ router.get('/home-auth', routeGuard, (req, res, next) => {
 
 router.get('/result-shuffle-filtered', async (req, res, next) => {
   const keywordQuery = req.query.q;
-  const length = req.query.length_max;
-  const genreId = req.query.genre_ids;
-  const language = req.query.language;
+  //const length = req.query.length_max;
+  //const genreId = req.query.genre_ids;
+  //const language = req.query.language;
   try {
     const response = await axios.get(
-      `https://listen-api.listennotes.com/api/v2/search?q=${keywordQuery}&type=episode&len_max=${length}&genre_ids=${genreId}&language=${language}`,
+      `https://listen-api.listennotes.com/api/v2/search?q=${keywordQuery}`,
+      //`https://listen-api.listennotes.com/api/v2/search?q=${keywordQuery}&type=episode&len_max=${length}&genre_ids=${genreId}&language=${language}`,
       {
         headers: {
           'X-ListenAPI-Key': `${listenNotesApiKey}`
@@ -89,13 +90,15 @@ router.get('/result-shuffle-filtered', async (req, res, next) => {
       }
     );
     const episode = response.data;
-      res.render('single-episode', { 
-        keywordQuery: keywordQuery,
-        length: length,
-        genreId: genreId,
-        language: language,
-        episode: episode 
-    })
+    res.render('single-episode', {
+      keywordQuery: keywordQuery
+    });
+    //
+    //length: length,
+    //genreId: genreId,
+    //language: language,
+    //episode: episode
+    console.log(episode);
   } catch (error) {
     next(error);
   }
@@ -122,7 +125,6 @@ router.get('/result-shuffle-filtered', async (req, res, next) => {
 //   // Call to the api getting single podcast with genre: subgenreId
 //   res.render('play-podcast', { podcast });
 // });
-
 
 // router.get('/episode/:id', async (req, res, next) => {
 //   const id = req.params.id;
