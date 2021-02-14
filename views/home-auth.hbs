@@ -3,10 +3,11 @@
 <h3>Select the filter option below and get your random Podcast</h3>
 <br>
 
-<form method="GET" action="/result-shuffle-filtered">
+<form method="GET" action="/episode/result-shuffle-filtered">
  	<input type="search" id="inputKeyword" placeholder="Keyword" name="q" />
 </form>
-{{!-- {{!--  --}}
+
+{{!-- 
 <label for="input-category">Category</label>
 <select name="category" id="input-category" required>
   <option value="" selected disabled>Choose your topic</option> <!-- Display empty placeholder value-->
@@ -35,11 +36,11 @@
     {{/each}}
 </select>
 
-<form method="GET" action="/result-shuffle-filtered">
+<form method="GET" action="/episode/result-shuffle-filtered">
 <label for="minutes">Duration</label>
  	<input type="text" id="inputDuration" placeholder="Minutes" name="duration" />
-</form>
---}}
+</form> --}}
 
-<button><a href="/result-shuffle-filtered">Shuffle</a></button>
+
+<button><a href="/episode/result-shuffle-filtered">Shuffle</a></button>
 

@@ -5,19 +5,15 @@
 <h4>{{user.email}}</h4>
 
 
-<h3>Favorite episodes</h3>
-{{#each episodes}}
-    <img src="{{image}}" alt="{{name}}"><a href="/single-episode/{{_id}}"></a>
+<h3>Favorite podcasts</h3>
+{{#each favorites}}
+    <img src="{{image}}" alt="{{title}}"><a href="/favorite/{{_id}}">{{title}}</a>
 {{/each}}
 
-<h3>My playlists</h3>
-{{#each playlists}}
-  <img src="{{image}}" alt="{{name}}"><a href="/playlist/{{_id}}"></a>
-{{/each}}
 
 <h3>History</h3>
 {{#each episodes}}
-    <img src="{{image}}" alt="{{name}}"><a href="/single-episode"></a>
+    <img src="{{image}}" alt="{{title}}"><a href="">{{title}}</a>
 {{/each}}
 
 

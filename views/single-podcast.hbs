@@ -3,15 +3,18 @@
 </div>
 
 <h3>{{podcast.title}}</h3>
-<h3>{{podcast.total_episodes}}</h3>
 <h4>{{podcast.publisher}}</h4>
+<ul>
+    {{#each podcast.episodes}}</ul>
+        <li>{{title}}</li>
+    {{/each}}
+</ul>
 
+{{#if user}}
+<button><a href="/add-to-favorites">Add to favorites</button></a>
+{{/if}}
 
-<div class="episode-list">
-    {{podcast.episodes.[0,10]}}
-</div>
 
 {{!-- <h5>{{episode.description}}</h5> --}}
 
 {{!-- Side page with single-episode and single-podcast --}}
-

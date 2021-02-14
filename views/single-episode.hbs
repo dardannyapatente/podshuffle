@@ -1,21 +1,20 @@
 <div>
 <img src="{{episode.image}}" alt="{{episode.title}}">
 </div>
-{{#if user}}
-<button><a href="/playlist/create">Add to playlist</button></a>
-{{/if}}
+
+<h3>{{episode.title}}</h3>
+<h4>{{episode.podcast.publisher}}</h4>
+<h5>{{episode.description}}</h5>
 
 <audio controls autoplay preload="metadata" style=" width:300px;">
 	<source src={{episode.audio}} type="audio/mpeg" >
 	Play
 </audio><br />
 
-<h3>{{episode.title}}</h3>
-<h4><a href="/podcast/{{_id}}">View podcast info</a></h4>
-<h5>{{episode.description}}</h5>
+<h4><a href="/episode/podcast/{{_id}}">View Podcast Info</a></h4>
 
 {{#if user}}
-<button><a href="/result-shuffle-filtered">Shuffle again</a></button>
+<button><a href="/episode/result-shuffle-filtered">Shuffle again</a></button>
 {{/if}}
 
 

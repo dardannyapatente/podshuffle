@@ -2,28 +2,22 @@
 
 const express = require('express');
 const router = new express.Router();
-const routeGuard = require('./../middleware/route-guard');
-const uploadMiddleware = require('./../middleware/file-upload');
-const Playlist = require('./../models/playlist');
+const routeGuard = require('../middleware/route-guard');
+const uploadMiddleware = require('../middleware/file-upload');
+const Favorite = require('../models/favorite');
 
-router.get('/create', routeGuard, (req, res, next) => {
-  res.render('playlist/create-form');
-});
+
 
 router.post(
-  '/create',
-  uploadMiddleware.single('image'),
+  '/add',
   routeGuard,
   (req, res, next) => {
     const data = req.body;
-    Playlist.create({
+    Favorite.create({
       name: data.name,
-      description: data.description,
-      // creator: req.user._id
-      // creator: req.session.userId
     })
-      .then((playlist) => {
-        res.redirect(`/playlist/${playlist._id}`);
+      .then((favorite) => {
+        res.redirect(`/favorite/${favorite._id}`);
       })
       .catch((error) => {
         next(error);
@@ -33,7 +27,7 @@ router.post(
 
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;
-  Playlist.findById(id)
+  Favorite.findById(id)
     .then((playlist) => {
       res.render('playlist/single-playlist', { playlist });
     })
@@ -44,9 +38,9 @@ router.get('/:id', (req, res, next) => {
 
 router.get('/:id/update', routeGuard, (req, res, next) => {
   const id = req.params.id;
-  Playlist.findById(id)
-    .then((playlist) => {
-      res.render('playlist/update', { playlist });
+  Favorite.findById(id)
+    .then((favorite) => {
+      res.render('favorite/favorite-list-update', { playlist });
     })
     .catch((error) => {
       next(error);
@@ -56,12 +50,11 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
 router.post('/:id/update', routeGuard, (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
-  Playlist.findByIdAndUpdate(id, {
-    name: data.name,
-    description: data.description
+  Favorite.findByIdAndUpdate(id, {
+    name: data.name
   })
-    .then((playlist) => {
-      res.render('playlist/single-playlist', { playlist });
+    .then((favorite) => {
+      res.render('favorite/favorite-list', { favorite });
     })
     .catch((error) => {
       next(error);
@@ -70,9 +63,9 @@ router.post('/:id/update', routeGuard, (req, res, next) => {
 
 router.get('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;
-  Playlist.findById(id)
-    .then((playlist) => {
-      res.render('playlist/deletion-confirmation', { playlist });
+  Favorite.findById(id)
+    .then((favorite) => {
+      res.render('favorite/deletion-confirmation', { favorite });
     })
     .catch((error) => {
       next(error);
@@ -81,9 +74,9 @@ router.get('/:id/delete', routeGuard, (req, res, next) => {
 
 router.post('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;
-  Playlist.findByIdAndDelete(id)
+  Favorite.findByIdAndDelete(id)
     .then(() => {
-      res.redirect('/home');
+      res.redirect('/favorite-list');
     })
     .catch((error) => {
       next(error);
@@ -92,11 +85,11 @@ router.post('/:id/delete', routeGuard, (req, res, next) => {
 
 // router.get('/add-to-playlist', (req, res) => {
 //   const id = req.params.id;
-//   Playlist.findById(id)
-//     .populate('episodes')
-//     .then((episodes) => {
-//       console.log(episodes);
-//       res.render('single-playlist', { episodes });
+//   Favorite.findById(id)
+//     .populate('podcast')
+//     .then((podcast) => {
+//       console.log(podcast);
+//       res.render('single-podcast', { podcast });
 //     })
 //     .catch((error) => {
 //       next(error);

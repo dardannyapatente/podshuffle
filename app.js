@@ -13,7 +13,8 @@ const basicAuthenticationDeserializer = require('./middleware/basic-authenticati
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
-const playlistRouter = require('./routes/playlist');
+const favoriteRouter = require('./routes/favorite');
+const episodeRouter = require('./routes/episode');
 const hbs = require('hbs');
 
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
@@ -58,7 +59,8 @@ app.use(bindUserToViewLocals);
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
-app.use('/playlist', playlistRouter);
+app.use('/favorite', favoriteRouter);
+app.use('/episode', episodeRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
