@@ -7,18 +7,18 @@ const uploadMiddleware = require('../middleware/file-upload');
 const Favorite = require('../models/favorite');
 
 
-
 router.post(
-  '/add',
+  '/:id/add-to-favorite',
   routeGuard,
   (req, res, next) => {
-    const data = req.body;
+    const paramsId = req.params.id;
     Favorite.create({
-      name: data.name,
+      user: req.user._id,
+      favoritePodcastId: paramsId
     })
-      .then((favorite) => {
-        res.redirect(`/favorite/${favorite._id}`);
-      })
+    .then(()=>{
+      res.redirect(`/episode/podcast/${{id}}`)
+    })
       .catch((error) => {
         next(error);
       });

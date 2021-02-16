@@ -8,10 +8,9 @@
 
 <audio controls autoplay preload="metadata" style=" width:300px;">
 	<source src={{episode.audio}} type="audio/mpeg" >
-	Play
 </audio><br />
 
-<h4><a href="/episode/podcast/{{_id}}">View Podcast Info</a></h4>
+<h4><a href="/episode/podcast/{{episode.podcast.id}}">View Podcast Info</a></h4>
 
 {{#if user}}
 <button><a href="/episode/result-shuffle-filtered">Shuffle again</a></button>

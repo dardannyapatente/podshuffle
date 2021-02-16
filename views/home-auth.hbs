@@ -5,42 +5,26 @@
 
 <form method="GET" action="/episode/result-shuffle-filtered">
  	<input type="search" id="inputKeyword" placeholder="Keyword" name="q" />
-</form>
 
-{{!-- 
-<label for="input-category">Category</label>
-<select name="category" id="input-category" required>
-  <option value="" selected disabled>Choose your topic</option> <!-- Display empty placeholder value-->
-  <option value="fiction">Fiction</option>
-  <option value="education">Education</option>
-  <option value="society-and-culture">Society & Culture</option>
-  <option value="history">History</option>
-  <option value="music">Music</option>
-  <option value="health-and-fitness">Health & Fitness</option>
-  <option value="news">News</option>
-  <option value="religion-and-spirituality">Religion & Spirituality</option>
-  <option value="technology">Technology</option>
-  <option value="entertainment">Entertainment</option>
-  <option value="sports">Sports</option>
-  <option value="arts">Arts</option>
-  <option value="business">Business</option>
-  <option value="politics">Politics</option>
-  <option value="science">Science</option>
-</select>
-
-<label for="input-language">Language</label>
-<select name="language" id="input-language" required>
-  <option value="" selected disabled>Select</option> <!-- Display empty placeholder value-->
-    {{#each languages}}
-    <option value="{{this}}">{{this}}</option>
+  <label for="input-category">Category</label>
+  <select name="category" id="input-category" required>
+    <option value="" selected disabled>Choose your topic</option> <!-- Display empty placeholder value-->
+    {{#each genres}}
+      <option value="{{ id }}">{{name}}</option>
     {{/each}}
-</select>
+  </select>
 
-<form method="GET" action="/episode/result-shuffle-filtered">
-<label for="minutes">Duration</label>
+  <label for="input-language">Language</label>
+  <select name="language" id="input-language" required>
+    <option value="" selected disabled>Select</option> <!-- Display empty placeholder value-->
+    {{#each languages}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+
+  <label for="minutes">Duration</label>
  	<input type="text" id="inputDuration" placeholder="Minutes" name="duration" />
-</form> --}}
 
-
-<button><a href="/episode/result-shuffle-filtered">Shuffle</a></button>
+  <button>Shuffle</button>
+</form>
 

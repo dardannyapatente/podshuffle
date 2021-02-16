@@ -3,12 +3,11 @@
 const mongoose = require('mongoose');
 
 const favoriteSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    trim: true,
-    required: true
+  user: {
+    ref: 'User',
+    type: mongoose.Types.ObjectId
   },
-  image: {
+  favoritePodcastId: {
     type: String
   }
 });

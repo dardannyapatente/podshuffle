@@ -4,7 +4,8 @@ const express = require('express');
 const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const { env } = require('process');
-//const genres = require('./../genres.json');
+const genres = require('./../genres.json');
+const languages = require('./../languages.json');
 
 // Send confirmation email to the user
 
@@ -21,7 +22,11 @@ router.get('/profile', routeGuard, (req, res, next) => {
 });
 
 router.get('/home-auth', routeGuard, (req, res, next) => {
-  res.render('home-auth', { title: 'Homepage' });
+  res.render('home-auth', {
+    title: 'Homepage',
+    genres: genres,
+    languages: languages
+  });
 });
 
 // router.get('/home', routeGuard, (req, res, next) => {

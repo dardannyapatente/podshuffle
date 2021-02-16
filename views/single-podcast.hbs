@@ -6,12 +6,14 @@
 <h4>{{podcast.publisher}}</h4>
 <ul>
     {{#each podcast.episodes}}</ul>
-        <li>{{title}}</li>
+        <li><a href="/episode/{{id}}">{{title}}</a></li>
     {{/each}}
 </ul>
 
 {{#if user}}
-<button><a href="/add-to-favorites">Add to favorites</button></a>
+<form action="{{podcast.id}}/add-to-favorite/" method="POST">
+    <button>Add to favorites</button>
+</form>
 {{/if}}
 
 
