@@ -32,7 +32,7 @@ router.post(
       favoritePodcastId: id,
       favoritePodcastTitle: favoritePodcastTitle,
       favoritePodcastImage: favoritePodcastImage
-    })
+    });
       res.redirect(`/episode/podcast/${id}`);
     } catch (error) {
         next(error);
@@ -49,6 +49,7 @@ router.get('/:id', (req, res, next) => {
       next(error);
     });
 });
+
 
 router.post('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;

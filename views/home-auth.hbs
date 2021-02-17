@@ -5,7 +5,7 @@
 
 <form method="GET" action="/episode/result-shuffle-filtered">
   <label for="input-query">Keyword</label>
- 	<input type="search" id="inputKeyword" placeholder="Keyword" name="q" />
+ 	<input type="search" id="inputKeyword" placeholder="Keyword" name="q" required/>
 
   <label for="input-category">Category</label>
   <select name="category" id="input-category" required>
@@ -26,6 +26,6 @@
   <label for="minutes">Duration</label>
  	<input type="text" id="inputDuration" placeholder="Minutes" name="duration" />
 
-  <button>Shuffle</button>
+  <button>Option Shuffle</button>
 </form>
-
+<button><a href="/episode/result-shuffle">Random Shuffle</a></button>

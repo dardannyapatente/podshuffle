@@ -23,6 +23,10 @@ router.get('/result-shuffle', async (req, res, next) => {
   }
 });
 
+router.get('/shuffle-again', (req, res, next) => {
+  res.render('home-auth');
+});
+
 router.get('/result-shuffle-filtered', async (req, res, next) => {
   const length = req.query.duration;
   const genreId = req.query.category;
