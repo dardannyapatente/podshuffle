@@ -3,7 +3,6 @@
 const express = require('express');
 const router = new express.Router();
 const routeGuard = require('../middleware/route-guard');
-const uploadMiddleware = require('../middleware/file-upload');
 const listenNotesApiKey = process.env.LISTENNOTES_API_KEY;
 const axios = require('axios');
 
@@ -18,7 +17,6 @@ router.get('/result-shuffle', async (req, res, next) => {
       }
     );
     const episode = response.data;
-    console.log(episode);
     res.render('single-episode', { episode });
   } catch (error) {
     next(error);

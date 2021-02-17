@@ -9,6 +9,12 @@ const favoriteSchema = new mongoose.Schema({
   },
   favoritePodcastId: {
     type: String
+  },
+  favoritePodcastTitle: {
+    type: String
+  },
+  favoritePodcastImage: {
+    type: String
   }
 });
 

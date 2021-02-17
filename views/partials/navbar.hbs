@@ -1,11 +1,14 @@
 <nav>
   {{#if user}}
   <a href="/home-auth">Home</a>
+  <a href="/favorite/favorites-list">Your favorites</a>
   <a href="/profile">{{user.name}}'s Profile</a>
   <form action="/authentication/sign-out" method="POST">
-  {{!-- <button><a href="/episode/result-shuffle-filtered">Shuffle again</a></button> --}}
-    <button>Sign Out</button>
+  <button>Sign Out</button>
   </form>
+  {{!-- <form action="/episode/result-shuffle-filtered" method="GET">
+	<button>Shuffle again</button>
+  </form> --}}
   {{else}}
   <a href="/">Home</a>
   <a href="/authentication/sign-in">Sign In</a>

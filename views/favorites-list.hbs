@@ -1,0 +1,13 @@
+<h1>YOUR FAVORITES</h1>
+<br>
+<ul>
+  {{#each favorites}}
+    <li>
+      <a href="/favorites/{{_id}}">
+        <img src="{{favoritePodcastImage}}" alt="{{favoritePodcastTitle}}">
+            <h4>{{favoritePodcastTitle}}</h4>
+      </a>
+    </li>
+  {{/each}}
+</ul>
+

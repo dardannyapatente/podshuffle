@@ -29,26 +29,5 @@ router.get('/home-auth', routeGuard, (req, res, next) => {
   });
 });
 
-// router.get('/home', routeGuard, (req, res, next) => {
-//   const topLevelGenres = genres.filter((genre) => {
-//     return genre.parent_id === 67;
-//   });
-//   // Renders list of anchor tags taking user to /genres/id of the genre
-//   res.render('home-auth-genres', { genres: topLevelGenres });
-// });
-
-// router.get('/genres/:genreId', routeGuard, (req, res, next) => {
-//   const genreId = req.params.genreId;
-//   const subgenres = genres.filter((genre) => {
-//     return genre.parent_id === id;
-//   });
-//   res.render('home-auth-subgenres', { subgenres: subgenres });
-// });
-
-// router.get('/generate-random/:subgenreId', routeGuard, (req, res, next) => {
-//   const subgenreId = req.params.subgenreId;
-//   // Call to the api getting single podcast with genre: subgenreId
-//   res.render('play-podcast', { podcast });
-// });
 
 module.exports = router;
