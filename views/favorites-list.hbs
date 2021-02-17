@@ -1,12 +1,15 @@
 <h1>MY FAVORITES</h1>
+{{#each favorites}}
 <ul>
-  {{#each favorites}}
     <li>
       <a href="/episode/podcast/{{episode.podcast.id}}">
         <img src="{{favoritePodcastImage}}" alt="{{favoritePodcastTitle}}">
             <h4>{{favoritePodcastTitle}}</h4>
       </a>
     </li>
-  {{/each}}
 </ul>
+<form action="favorite/{{_id}}/delete" method="POST">
+<button>Delete</button>
+</form>
+{{/each}}
 

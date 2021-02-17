@@ -27,7 +27,7 @@ router.post(
       const favoritePodcastTitle = singlePodcast.title;
       const favoritePodcastImage = singlePodcast.image;
 
-      await Favorite.create({
+      const favorited = await Favorite.create({
       user: req.user._id,
       favoritePodcastId: id,
       favoritePodcastTitle: favoritePodcastTitle,
@@ -50,12 +50,11 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-
 router.post('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;
   Favorite.findByIdAndDelete(id)
     .then(() => {
-      res.redirect('/favorites-list');
+      res.redirect(`/episode/podcast/${id}`);
     })
     .catch((error) => {
       next(error);
