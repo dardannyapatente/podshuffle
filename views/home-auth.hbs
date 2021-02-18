@@ -20,23 +20,23 @@
                 <div class="filter">
                   <form method="GET" action="/episode/result-shuffle-filtered">
               
- 	                  <input type="search" id="inputKeyword" placeholder="Type keyword here" name="q" required/>
+ 	                  <input type="search" id="inputKeyword" placeholder="Keyword" name="q" required/>
 
-                    <select name="category" id="input-category" required>
+                    <select name="category" id="input-category" >
                     <option value="" selected disabled>Select topic</option> <!-- Display empty placeholder value-->
                       {{#each genres}}
                         <option value="{{ id }}">{{name}}</option>
                       {{/each}}
                     </select>
 
-                    <select name="language" id="input-language" required>
+                    <select name="language" id="input-language" >
                     <option value="" selected disabled>Select language</option> <!-- Display empty placeholder value-->
                       {{#each languages}}
                         <option value="{{this}}">{{this}}</option>
                       {{/each}}
                     </select>
 
-                    <select name="duration" id="inputDuration" required>
+                    <select name="duration" id="inputDuration" >
                     <option value="" selected disabled>Select duration</option> <!-- Display empty placeholder value-->
                       <option value=""> 0-15 minutes </option>
                       <option value=""> 15-30 minutes </option>

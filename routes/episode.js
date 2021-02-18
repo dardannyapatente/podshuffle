@@ -5,6 +5,7 @@ const router = new express.Router();
 const routeGuard = require('../middleware/route-guard');
 const listenNotesApiKey = process.env.LISTENNOTES_API_KEY;
 const axios = require('axios');
+const Favorite = require('../models/favorite');
 
 router.get('/result-shuffle', async (req, res, next) => {
   try {
@@ -24,9 +25,9 @@ router.get('/result-shuffle', async (req, res, next) => {
 });
 
 router.get('/result-shuffle-filtered', async (req, res, next) => {
-  const length = req.query.duration;
-  const genreId = req.query.category;
-  const language = req.query.language;
+  const length = req.query.duration || 3;
+  const genreId = req.query.category || "";
+  const language = req.query.language || "English";
   const keywordQuery = req.query.q;
   try {
     const response = await axios.get(
@@ -53,15 +54,14 @@ router.get('/result-shuffle-filtered', async (req, res, next) => {
     };
     res.render('single-episode', {
       keywordQuery: keywordQuery,
-      episode: episode
+      episode: episode,
+      length: length,
+      genreId: genreId,
+      language: language
     });
   } catch (error) {
     next(error);
   }
-});
-
-router.get('/shuffle-again', (req, res, next) => {
-  res.render('home-auth');
 });
 
 router.get('/:id', async (req, res, next) => {
@@ -98,7 +98,10 @@ router.get('/podcast/:id', async (req, res, next) => {
       }
     );
     const podcast = response.data;
-    res.render('single-podcast', { podcast });
+    const currentUser = req.user;
+    const isFavorited = await Favorite.find( { favoritePodcastId: id, user: currentUser } );
+
+    res.render('single-podcast', { podcast, isFavorited });
   } catch (error) {
     next(error);
   }

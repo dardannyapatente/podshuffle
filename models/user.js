@@ -18,10 +18,11 @@ const userSchema = new mongoose.Schema({
   },
   picture: {
     type: String,
+    default:
+      'https://archive.org/download/user-image-with-black-background_318-34564/user-image-with-black-background_318-34564.jpg'
   }
 });
 
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
-
