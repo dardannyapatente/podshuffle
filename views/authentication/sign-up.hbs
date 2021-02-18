@@ -1,11 +1,20 @@
-<form action="/authentication/sign-up" method="POST" enctype="multipart/form-data">
-  <label for="input-name">Name</label>
-  <input type="text" id="input-name" name="name" placeholder="Your Name" />
-  <label for="input-email">Email</label>
-  <input type="email" id="input-email" name="email" placeholder="Your Email" />
-  <label for="input-password">Password</label>
-  <input type="password" name="password" id="input-password" placeholder="A Strong Password" />
-  <label for="input-profile-picture">Add a picture</label>
-  <input id="input-profile-picture" type="file" name="picture" accept="image/png, image/jpeg"/>
-  <button>Sign Up</button>
-</form>
+
+<div class="auth1">
+  <div class="auth1-bg">
+    <div class="auth1-inner">
+    <div class="content">
+        <div class="form">
+          <p class="sign" align="center">Sign up</p>
+          <form action="/authentication/sign-up" method="POST" class="form">
+            <input type="text" id="input-name" name="name" placeholder="Your Name" />
+            <input type="email" id="input-email" name="email" placeholder="Your Email" />
+            <input type="password" name="password" id="input-password" placeholder="Your Password" />
+            <input id="input-profile-picture" type="file" name="picture" placeholder="Add a picture" accept="image/png, image/jpeg"/>
+            
+            <button>Sign up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

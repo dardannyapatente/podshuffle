@@ -1,31 +1,57 @@
-<h1>Welcome to PodShuffle</h1>
-<br>
-<h3>Select the filter option below and get your random Podcast</h3>
-<br>
+<section class="homepage" id="homepage">
+    <div id="homepageBg" class="homepage-bg"></div>
+      <div class="container">
+        <div class="row">
+          <div class="homepage-inner" id="homepageInner">
+            <div class="content">
+              <div class="content-inner">
+                <h1>
+                  <div class="line">
+                    <span>Expand your world</span>
+                  </div>
+                  <div class="line">
+                    <span>one podcast at a time</span>
+                  </div>
+                </h1>
+                <p>
+                  Enjoy quality content about your favorite topics. All of the fun with none of the decision fatigue. Serendipity has never been this
+                   easy.
+                </p>
+                <div class="filter">
+                  <form method="GET" action="/episode/result-shuffle-filtered">
+              
+ 	                  <input type="search" id="inputKeyword" placeholder="Type keyword here" name="q" required/>
 
-<form method="GET" action="/episode/result-shuffle-filtered">
-  <label for="input-query">Keyword</label>
- 	<input type="search" id="inputKeyword" placeholder="Keyword" name="q" required/>
+                    <select name="category" id="input-category" required>
+                    <option value="" selected disabled>Select topic</option> <!-- Display empty placeholder value-->
+                      {{#each genres}}
+                        <option value="{{ id }}">{{name}}</option>
+                      {{/each}}
+                    </select>
 
-  <label for="input-category">Category</label>
-  <select name="category" id="input-category" required>
-    <option value="" selected disabled>Choose your topic</option> <!-- Display empty placeholder value-->
-    {{#each genres}}
-      <option value="{{ id }}">{{name}}</option>
-    {{/each}}
-  </select>
+                    <select name="language" id="input-language" required>
+                    <option value="" selected disabled>Select language</option> <!-- Display empty placeholder value-->
+                      {{#each languages}}
+                        <option value="{{this}}">{{this}}</option>
+                      {{/each}}
+                    </select>
 
-  <label for="input-language">Language</label>
-  <select name="language" id="input-language" required>
-    <option value="" selected disabled>Select</option> <!-- Display empty placeholder value-->
-    {{#each languages}}
-      <option value="{{this}}">{{this}}</option>
-    {{/each}}
-  </select>
+                    <select name="duration" id="inputDuration" required>
+                    <option value="" selected disabled>Select duration</option> <!-- Display empty placeholder value-->
+                      <option value=""> 0-15 minutes </option>
+                      <option value=""> 15-30 minutes </option>
+                      <option value=""> 30-60 minutes </option>
+                      <option value=""> Over 1 hour </option>
+                    </select>
+                  
+                    <button class="shuffle-button">Shuffle</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+ </section>
 
-  <label for="minutes">Duration</label>
- 	<input type="text" id="inputDuration" placeholder="Minutes" name="duration" />
-
-  <button>Option Shuffle</button>
-</form>
-<button><a href="/episode/result-shuffle">Random Shuffle</a></button>

@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.0.0-beta2",
     "cloudinary": "^1.24.0",
     "connect-mongo": "^3.2.0",
     "debug": "^4.3.1",
@@ -29,14 +30,17 @@
     "unirest": "^0.6.0"
   },
   "devDependencies": {
-    "mocha": "^8.2.1",
-    "nodemon": "^2.0.7",
+    "browser-sync": "^2.26.14",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "^4.2.1",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1"
   },
   "main": "app.js",

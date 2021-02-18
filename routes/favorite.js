@@ -11,33 +11,32 @@ router.get('/favorites-list', routeGuard, (req, res, next) => {
   res.render('favorites-list');
 });
 
-router.post(
-  '/:id/add-to-favorites', routeGuard, async (req, res, next) => {
-    const id = req.params.id;
-    try {
-      const response = await axios.get(
-        `https://listen-api.listennotes.com/api/v2/podcasts/${id}`,
-        {
-          headers: {
-            'X-ListenAPI-Key': `${listenNotesApiKey}`
-          }
+router.post('/:id/add-to-favorites', routeGuard, async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const response = await axios.get(
+      `https://listen-api.listennotes.com/api/v2/podcasts/${id}`,
+      {
+        headers: {
+          'X-ListenAPI-Key': `${listenNotesApiKey}`
         }
-      );
-      const singlePodcast = response.data;
-      const favoritePodcastTitle = singlePodcast.title;
-      const favoritePodcastImage = singlePodcast.image;
+      }
+    );
+    const singlePodcast = response.data;
+    const favoritePodcastTitle = singlePodcast.title;
+    const favoritePodcastImage = singlePodcast.image;
 
-      const favorited = await Favorite.create({
+    const favorited = await Favorite.create({
       user: req.user._id,
       favoritePodcastId: id,
       favoritePodcastTitle: favoritePodcastTitle,
       favoritePodcastImage: favoritePodcastImage
     });
-      res.redirect(`/episode/podcast/${id}`);
-    } catch (error) {
-        next(error);
-      };
-  });
+    res.redirect(`/episode/podcast/${id}`);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;
@@ -73,7 +72,6 @@ router.post('/:id/delete', routeGuard, (req, res, next) => {
 //     next(error);
 //     });
 //   });
-
 
 // router.get('/:id/update', routeGuard, (req, res, next) => {
 //   const id = req.params.id;

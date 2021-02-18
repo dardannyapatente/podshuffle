@@ -1,0 +1,92 @@
+
+// media query
+$mobile: '480px';
+$tablet: '768px';
+$laptop: '960px';
+$desktop: '1152px';
+$widescreen: '1440px';
+
+
+// color
+$blue: #233567;
+$blueGreen: #0f918b;
+$lPink: #eec5b7;
+$pink: #d36787;
+$redOrange: #d57868;
+$white: #ffffff;
+$offwhite: #fffdf7;
+$darkwhite: #fff5e3;
+$black: #000000;
+$lgray: #fafafa;
+
+// font
+$font-sans: 'Lato', sans-serif;
+
+// links
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+
+// body
+
+* {
+  box-sizing: border-box;
+  background-color: $white;
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+.container-fluid {
+  padding: 0 48px;
+  .row {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+  }
+}
+
+.container {
+  width: 1345px;
+  min-width: 1345px;
+  margin: 0 auto;
+  @media (max-width: $widescreen) {
+    width: 1153px;
+    min-width: 1153px;
+  }
+  @media (max-width: $desktop) {
+    width: 961px;
+    min-width: 961px;
+  }
+  @media (max-width: $laptop) {
+    width: 767px;
+    min-width: 767px;
+  }
+  @media (max-width: $tablet) {
+    width: 481px;
+    min-width: 481px;
+  }
+  @media (max-width: $mobile) {
+    width: 320px;
+    min-width: 320px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+  }
+}
+

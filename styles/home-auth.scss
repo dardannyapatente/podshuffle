@@ -1,0 +1,127 @@
+@import "./variables.scss";
+
+.homepage {
+  height: 80vh;
+  position: relative;
+  @media (max-width: $widescreen) {
+    height: 90vh;
+  }
+  .homepage-bg {
+    background: $white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+  }
+  .homepage-inner {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    position: relative;
+    @media (max-width: $widescreen) {
+      height: 90vh;
+    }
+    .content {
+      width: 100%;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      margin-top: 40px;
+      font-family: $font-sans;
+      .content-inner {
+        h1 {
+          color: $blue;
+          font-size: 3em;
+          line-height: 3rem;
+          margin: 56px 0 0;
+          width: 620px;
+          @media (max-width: $widescreen) {
+            font-size: 3.1rem;
+            line-height: 3.6rem;
+          }
+          .line {
+            overflow: hidden;
+            height: 70px;
+            position: relative;
+            span {
+              position: absolute;
+            }
+          }
+        }
+        p {
+          font-size: 1rem;
+          line-height: 1.6rem;
+          font-weight: 300;
+          color: $blue;
+          width: 520px;
+          margin: 32px 0 30px;
+          @media (max-width: $widescreen) {
+            margin: 16px 0 60px;
+          }
+        }
+        .filter {
+        
+              input, select {
+              width: 20%;
+              color: $blue;
+              font-weight: 700;
+              font-size: 0.8em;
+              text-align: center;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 20px;
+              outline: none;
+              box-sizing: border-box;
+              border: 1px solid $blue;
+              margin-right: 20px;
+              margin-bottom: 30px;
+              }
+  
+              button {
+              display : inline-block;
+              border-radius: 5em;
+              color: #fff;
+              background: $redOrange;
+              border: 0;
+              padding-left: 40px;
+              padding-right: 40px;
+              padding-bottom: 10px;
+              padding-top: 10px;
+              font-family: $font-sans;
+              
+              font-weight: 700;
+              font-size: 0.8em;
+              }
+          
+          }
+        
+          }
+        }
+      }
+    }
+    /*
+    .image {
+      position: relative;
+      width: 40%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      .image-inner {
+        img {
+          width: 450px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 9;
+          @media (max-width: $widescreen) {
+            width: 400px;
+          }
+        }
+      }
+    }
+    */
+  
