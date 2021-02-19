@@ -75,6 +75,7 @@ router.get('/:id', async (req, res, next) => {
         }
       );
       const episode = response.data;
+      console.log(episode)
       res.render('single-episode', { episode });
     } catch (error) {
       next(error);

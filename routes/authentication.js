@@ -51,19 +51,15 @@ router.post(
             pass: process.env.GMAIL_PASSWORD
           }
         });
-        
+
         transport
           .sendMail({
             from: process.env.GMAIL_ADDRESS,
-            to: process.env.GMAIL_ADDRESS,
+            to: data.email,
             subject: 'Welcome to PodSuffle',
-            html: `
-            <html> 
-                <body>
-                    <h2>Welcome to PodSuffle</h2>
-                </body>
-            </html>
-        `
+              html: {
+                  path: __dirname + 'email-message.html'
+              }
           })
           .then((result) => {
             console.log('Email was sent.');
@@ -72,8 +68,7 @@ router.post(
             console.log('There was an error sending email.');
           });
       })
-  }
-);
+   });
 
 router.get('/sign-in', (req, res, next) => {
   res.render('authentication/sign-in');
