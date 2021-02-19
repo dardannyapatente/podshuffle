@@ -5,21 +5,22 @@
 <h3>{{podcast.title}}</h3>
 <h4>{{podcast.publisher}}</h4>
 <ul>
+    <h3>Most recente episodes:</h3>
     {{#each podcast.episodes}}</ul>
         <li><a href="/episode/{{id}}">{{title}}</a></li>
     {{/each}}
 </ul>
 
 {{#if user}}
-<form action="/favorite/{{podcast.id}}/add-to-favorites" method="POST">
-    <button>Add to favorites</button>
-</form>
-{{/if}}
-
-{{#if isFavorited}}
-<img src="" alt="">
-{{else}}
-<img src="" alt="">
+    {{#if isFavorited}}
+        <form action="/favorite/{{favorite._id}}/delete" method="POST">
+        <button><img src="https://images.emojiterra.com/twitter/v13.0/512px/2764.png" alt="Favorited"></button>
+        </form>
+    {{else}}
+        <form action="/favorite/{{podcast.id}}/add-to-favorites" method="POST">
+        <button><img src="https://www.clipartmax.com/png/full/424-4246189_empty-heart-png.png" alt="Unfavorited"></button>
+        </form>
+    {{/if}}
 {{/if}}
 
 

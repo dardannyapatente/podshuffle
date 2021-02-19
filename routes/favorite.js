@@ -22,7 +22,7 @@ router.post('/:id/add-to-favorites', routeGuard, async (req, res, next) => {
     const favoritePodcastTitle = singlePodcast.title;
     const favoritePodcastImage = singlePodcast.image;
 
-    const favorite = await Favorite.create({
+    const newFavorite = await Favorite.create({
       user: req.user._id,
       favoritePodcastId: id,
       favoritePodcastTitle: favoritePodcastTitle,
@@ -53,7 +53,7 @@ router.get('/:id', (req, res, next) => {
   const id = req.params.id;
   Favorite.findById(id)
     .then((favorite) => {
-      res.render('single-podcast', { favorite });
+    res.redirect(`/episode/podcast/${id}`);
     })
     .catch((error) => {
       next(new Error("I didn't find any episode with that ID!"));
@@ -72,5 +72,7 @@ router.post('/:id/delete', routeGuard, (req, res, next) => {
       next(error);
     });
 });
+
+
 
 module.exports = router;

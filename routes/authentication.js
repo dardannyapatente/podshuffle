@@ -82,7 +82,7 @@ router.get('/sign-in', (req, res, next) => {
 router.post('/sign-in', (req, res, next) => {
   let user;
   const data = req.body;
-  User.findOne({ email })
+  User.findOne({ email: data.email})
     .then((document) => {
       if (!document) {
         return Promise.reject(new Error("There's no user with that email."));

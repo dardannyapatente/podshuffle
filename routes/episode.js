@@ -2,7 +2,6 @@
 
 const express = require('express');
 const router = new express.Router();
-const routeGuard = require('../middleware/route-guard');
 const listenNotesApiKey = process.env.LISTENNOTES_API_KEY;
 const axios = require('axios');
 const Favorite = require('../models/favorite');
@@ -25,8 +24,8 @@ router.get('/result-shuffle', async (req, res, next) => {
 });
 
 router.get('/result-shuffle-filtered', async (req, res, next) => {
-  const length = req.query.duration || 3;
-  const genreId = req.query.category || "";
+  const length = req.query.duration || 30;
+  const genreId = req.query.category || "Entertainment";
   const language = req.query.language || "English";
   const keywordQuery = req.query.q;
   try {

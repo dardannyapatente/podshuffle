@@ -3,14 +3,16 @@
 {{#each favorites}}
 <ul>
     <li>
-      <a href="/episode/podcast/{{episode.podcast.id}}">
+      <a href="/episode/podcast/{{favoritePodcastId}}">
         <img src="{{favoritePodcastImage}}" alt="{{favoritePodcastTitle}}">
             <h4>{{favoritePodcastTitle}}</h4>
       </a>
     </li>
 </ul>
 <form action="/favorite/{{_id}}/delete" method="POST">
-<button>Delete</button>
+<button><img src="https://images.emojiterra.com/twitter/v13.0/512px/2764.png" alt="Favorited"></button>
 </form>
 {{/each}}
+
+
 
