@@ -1,20 +1,19 @@
-@import "./variables.scss";
-  
+@import './variables.scss';
+
 .container {
-    
-  height:90vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: start;
-  color:$black;
+  color: $black;
 
   .row {
     margin: 25px 30px;
   }
 
   .content-inner {
-  font-style: $font-sans;
-  margin-top: 30px;
+    font-style: $font-sans;
+    margin-top: 30px;
   }
 
   h1 {
@@ -22,80 +21,72 @@
     font-size: 2.6em;
     line-height: 3rem;
     margin-top: 40px 0 0;
-   
+
     margin-bottom: 25px;
   }
-  
+
   .line {
     overflow: hidden;
     height: 50px;
     position: relative;
-    }
-  
+  }
 
   .text {
     font-size: 1rem;
     line-height: 1.6rem;
     font-weight: 300;
-    
+
     position: relative;
     color: grey;
   }
 
   .filter {
     margin-top: 20px;
-    
-    
-    
-    input[type="search"] {
-    border: 1.3px solid $black;
-    border-radius: 20px;
-    margin-bottom:10px;
-    width: 210px;
-    padding: 0 10px;
-    background: transparent;
+
+    input[type='search'] {
+      border: 1.3px solid $black;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      width: 210px;
+      padding: 0 10px;
+      background: transparent;
     }
 
     select {
-    border: 1.3px solid $black;
-    border-radius: 20px;
-    margin-bottom:10px;
-    padding: 0 10px;
-    background: transparent;
-    
-    #input-category {
-      width: 110px;
-    }
+      border: 1.3px solid $black;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      padding: 0 10px;
+      background: transparent;
 
-    #input-language,
-    #input-duration {
-      width: 80px;
-      margin-right: 20px;
+      #input-category {
+        width: 110px;
+      }
+
+      #input-language,
+      #input-duration {
+        width: 80px;
+        margin-right: 20px;
+      }
     }
-  
-    }
-  
   }
 
   .shuffle-button {
-    
-      display: inline-block;
-      height: 40px;
-      line-height: 40px;
-      font-size: 1rem;
-      margin-top: 20px;
-      margin-left: 0px;
-      padding: 0 32px;
-      text-decoration: none;
-      font-weight: 600;
-      color: $white;
-      background: $redOrange;
-      border-radius: 100px;
-    
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-left: 0px;
+    padding: 0 32px;
+    text-decoration: none;
+    font-weight: 600;
+    color: $white;
+    background: $redOrange;
+    border-radius: 100px;
   }
 
-  img {
-  
+  .illustration {
     width: 450px;
     visibility: show;
     margin-top: 30px;
@@ -103,6 +94,4 @@
     position: relative;
     z-index: 100;
   }
-
-  
 }
