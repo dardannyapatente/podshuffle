@@ -7,7 +7,7 @@
                 
                 <div class="image">
                    <img id="episode-image" class="rounded float-end" src="{{episode.image}}" style="width:300px;" alt="{{episode.title}}">
-                 <a class="podcast-info" href="/episode/podcast/{{episode.podcast.id}}">View Podcast Info</a>
+                 
                 </div>
                 
               </div>
@@ -30,8 +30,8 @@
 					          </audio>
                   </div> 
 
-                  <div class="episode-description">
-                    <p>{{episode.description}}</p>
+                  <div class="podcast-info">
+                    <a href="/episode/podcast/{{episode.podcast.id}}">View Podcast</a>
                   </div>
                 
             </div>
@@ -43,7 +43,12 @@
             <div class="col-6" id="shuffle-again-button">
               {{#if user}}
 				        <a class="shuffle-button" href="/episode/result-shuffle-filtered?keywordQuery={{keywordQuery}}&length={{length}}&genreId={{genreId}}&language={{language}}">Shuffle again</a>
-				      {{/if}}
+				      {{else}}
+              
+              <div class="shuffle-button">
+                    <a href="/episode/result-shuffle">Shuffle again</a>
+                </div> 
+                {{/if}}
             </div>
             <div class="col" >
 

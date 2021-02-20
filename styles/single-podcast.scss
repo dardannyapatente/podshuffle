@@ -24,12 +24,14 @@
     margin: auto;
 
     .podcast-favorite {
-      
-     
-
-      form {
-        
+      img {
+        width: 50px;
       }
+
+      button {
+        background: transparent;
+      }
+    }
   
   
   .podcast-title {
@@ -43,9 +45,19 @@
     
   }
 
+  .podcast-description {
+    p {
+    color: black;
+    font-size: 0.875em;
+    font-weight: 300;
+    position: relative;
+    margin-bottom: 10px;
+    }
+  }
   .episode-list{
     width: 380px;
-   
+   margin-bottom: 100px;
+   padding-top: 50pxp;
 
   }
     
@@ -55,7 +67,7 @@
       }
     }
   }
-}
+
 
 
 
