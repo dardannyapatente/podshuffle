@@ -1,0 +1,38 @@
+@import './variables.scss';
+
+.container {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: $black;
+
+  .row {
+    margin: 50px 40px;
+  }
+
+  .content {
+    font-style: $font-sans;
+  }
+
+  h3 {
+    color: $black;
+    font-size: 1.3em;
+    line-height: 1rem;
+    margin-bottom: 20px;
+  }
+
+  h4 {
+    color: $black;
+    font-size: 1em;
+    line-height: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+   p {
+    color: $black;
+    font-size: 0.875em;
+    margin-bottom: 20px;
+  }
+
+}

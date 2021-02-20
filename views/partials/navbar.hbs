@@ -1,52 +1,53 @@
 
 
-<header id="header">
-
+<nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
-    <div class="row">
-      <div class="header-inner">
-        <div class="logo">
-          
-            {{#if user}}
-            <h1> <a href="/home-auth">podshuffle </a></h1>
-            {{else}}
-            <h1> <a href="/">podshuffle </a></h1>
-            {{/if}}
-        </div>
-        <div class="navigation">
-          <nav>
-            {{#if user}}
-                    <ul>
-                      <li><a href="/home-auth">Home</a></li>
-                      <li><a href="/favorite/favorites-list">Favorites</a></li>
-                      <li><a href="/profile">Profile</a></li> 
-                      <li>
-                        <form action="/authentication/sign-out" method="POST" >
-                          <button class="sign-out">Sign Out</button>
-                        </form>
-                      </li>
-                    </ul>
-                  {{else}}
-                    <ul>
-                      <li><a href="/">Home</a></li>
-                      <li><a href="/">About</a></li>
-                      <li>
-                        <div class="nav-authentication">
-                          <div class="sign-in">
-                            <a href="/authentication/sign-in">Sign In</a>  
-                        </div>
-                        <div class="sign-up">
-                            <a href="/authentication/sign-up">Sign Up</a>
-                        </div>
-                      </li>
-                    </ul>
-                  {{/if}}
-          </nav>
-        </div>
-      </div>
+    <a id="logo" class="navbar-brand" href="/">podshuffle</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      {{#if user}}
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home-auth">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/favorite/favorites-list">Favorites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
 
+      
+
+
+
+      
+         <li class="nav-item">
+          <form action="/authentication/sign-out" method="POST" >
+            <button id="sign-out">Sign Out</button>
+          </form>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a id="sign-in" class="nav-link" href="/authentication/sign-in">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a id="sign-up" class="nav-link" href="/authentication/sign-up">Sign Up</a>
+        </li>
+        {{/if}} 
+      </ul>
     </div>
   </div>
-
-</header>
+</nav>
  

@@ -1,0 +1,45 @@
+@import './variables.scss';
+
+.container {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $black;
+
+  .row {
+    margin: 50px 40px;
+  }
+
+  .content {
+    font-style: $font-sans;
+  
+
+  .about-info {
+      h2 {
+    color: $black;
+    font-size: 1.6em;
+    line-height: 1rem;
+    margin-bottom: 20px;
+  }
+
+   p {
+    color: $black;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    }
+     }   
+
+  .project-info {
+    p {
+        color: $black;
+        font-size: 0.875em;
+        margin-bottom: 20px;
+        font-style:italic;
+        }
+  }
+}
+
+}
+
+

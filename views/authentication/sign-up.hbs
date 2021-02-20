@@ -1,18 +1,38 @@
 
-<div class="auth1">
-  <div class="auth1-bg">
-    <div class="auth1-inner">
-    <div class="content">
-        <div class="form">
-          <p class="sign" align="center">Sign up</p>
-          <form action="/authentication/sign-up" method="POST" class="form">
-            <input type="text" id="input-name" name="name" placeholder="Your Name" />
-            <input type="email" id="input-email" name="email" placeholder="Your Email" />
-            <input type="password" name="password" id="input-password" placeholder="Your Password" />
-            <input id="input-profile-picture" type="file" name="picture" placeholder="Add a picture" accept="image/png, image/jpeg"/>
-            
-            <button>Sign up</button>
-          </form>
+
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="">
+    <div class="card-body ">
+      <p class="card-title text-center">
+        Sign Up
+      </p>
+      <div class="card-text ">
+        
+        <form action="/authentication/sign-up" method="POST">
+
+        <div class="form-group">
+        <label for="input-name" class="form-label"> Name </label>
+        <input class="form-control form-control-sm" type="name" id="input-name" name="name" placeholder="Your name" />
+        </div>
+
+        <div class="form-group">
+        <label for="input-email" class="form-label"> Email address </label>
+        <input class="form-control form-control-sm" type="email" id="input-email" name="email" placeholder="Your Email" />
+        </div>
+
+        <div class="form-group">
+        <label for="input-password" class="form-label"> Password </label>
+        <input class="form-control form-control-sm" type="password" id="input-password" name="password" placeholder="Your Password" />
+        </div>
+
+        <div class="form-group">
+        <label for="input-picture" class="form-label"> Profile Picture </label>
+        <input class="form-control form-control-sm" id="input-profile-picture" type="file" name="picture" placeholder="Add a picture" accept="image/png, image/jpeg"/>
+        </div>
+
+        <button type="submit">Sign Up</button>
+        </form>
         </div>
       </div>
     </div>

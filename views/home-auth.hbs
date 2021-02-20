@@ -1,9 +1,8 @@
-<section class="homepage" id="homepage">
-    <div id="homepageBg" class="homepage-bg"></div>
+
+
       <div class="container">
         <div class="row">
-          <div class="homepage-inner" id="homepageInner">
-            <div class="content">
+            <div class="col-8" id="content">
               <div class="content-inner">
                 <h1>
                   <div class="line">
@@ -13,22 +12,33 @@
                     <span>one podcast at a time</span>
                   </div>
                 </h1>
-                <p>
-                  Enjoy quality content about your favorite topics. All of the fun with none of the decision fatigue. Serendipity has never been this
-                   easy.
-                </p>
+      
+                  <div class="text">
+                    <span>Enjoy quality content about your favorite topics.</span>
+                  </div>
+                  <div class="text">
+                    <span>All of the fun with none of the decision fatigue.</span>
+                  </div>
+                  <div class="text">
+                    <span>Serendipity has never been this
+                   easy.</span>
+                  </div>
+                
                 <div class="filter">
                   <form method="GET" action="/episode/result-shuffle-filtered">
-              
+                    
+                    <div class="">
  	                  <input type="search" id="inputKeyword" placeholder="Keyword" name="q" required/>
-
+                    
                     <select name="category" id="input-category" >
                     <option value="" selected disabled>Select topic</option> <!-- Display empty placeholder value-->
                       {{#each genres}}
                         <option value="{{ id }}">{{name}}</option>
                       {{/each}}
                     </select>
-
+                    </div>
+                    
+                    <div class="">
                     <select name="language" id="input-language" >
                     <option value="" selected disabled>Select language</option> <!-- Display empty placeholder value-->
                       {{#each languages}}
@@ -36,22 +46,29 @@
                       {{/each}}
                     </select>
 
-                    <select name="duration" id="inputDuration" >
+                    <select name="duration" id="input-duration" >
                     <option value="" selected disabled>Select duration</option> <!-- Display empty placeholder value-->
                       <option value=""> 0-15 minutes </option>
                       <option value=""> 15-30 minutes </option>
                       <option value=""> 30-60 minutes </option>
                       <option value=""> Over 1 hour </option>
                     </select>
-                  
+                    </div>
+                    
+                    
                     <button class="shuffle-button">Shuffle</button>
+                    
                   </form>
                 </div>
+
+              </div>
+            </div>
+            <div class="col-4" id="image" >
+              <div class="image-inner">
+                <img class="rounded float-end" src="./images/Podcast audience-bro.svg" alt="podshuffle-illustration"/>
               </div>
             </div>
           </div>
         </div>  
-      </div>
-    </div>
- </section>
-
+   
+  

@@ -1,4 +1,6 @@
-<div>
+
+<!--
+    <div>
 <img src="{{podcast.image}}" alt="{{podcast.title}}">
 </div>
 
@@ -23,10 +25,59 @@
     {{/if}}
 {{/if}}
 
+-->
+
+<div class="container">
+        <div class="row">
+            
+              <div class="content-image">
+
+                <div class="image"></div>
+                   <img id="podcast-image" class="rounded mx-auto d-block" src="{{podcast.image}}" style="width:200px;" alt="{{podcast.title}}">
+                 
+                </div>
+
+              </div>
+              
+              <div class="content-podcast">
+                
+                <div class="podcast-favorite">
+                    
+                  {{#if user}}
+                    {{#if isFavorited}}
+                        <form action="/favorite/{{favorite._id}}/delete" method="POST">
+                         <button><img src="./images/heart-full.png" style="50px" alt="Favorited"></button>
+                        </form>
+                {{else}}
+                    <form action="/favorite/{{podcast.id}}/add-to-favorites" method="POST">
+                        <button><img src=".public/images/heart -empty.png" style="50px" alt="Unfavorited"></button>
+                    </form>
+                    {{/if}}
+                {{/if}}
+                  </div>
+
+                   <div class="podcast-title">
+                       <h3>{{podcast.title}}   by {{podcast.publisher}}
+                       </h3>
+                   </div>
 
 
+                <div class="episode-list">
+                <ul>
+                    <p>Most recent episodes</p>
+                    {{#each podcast.episodes}}</ul>
+                        <li><a href="/episode/{{id}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+               
+                </div>
+            
+
+        </div>
+    </div>
+</div>
+
+   
+  
 
 
-
-
-{{!-- Side page with single-episode and single-podcast --}}

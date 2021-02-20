@@ -14,9 +14,9 @@ $lPink: #eec5b7;
 $pink: #d36787;
 $redOrange: #d57868;
 $white: #ffffff;
-$offwhite: #fffdf7;
-$darkwhite: #fff5e3;
-$black: #000000;
+$offwhite: #fffefc;
+$darkwhite: #f9f5f1;
+$black: #111111;
 $lgray: #fafafa;
 
 // font
@@ -24,8 +24,12 @@ $font-sans: 'Lato', sans-serif;
 
 // links
 a {
-  color: inherit;
+  color:$black;
   text-decoration: none;
+  &:hover {
+    color : $black;
+    text-decoration: underline;
+  }
 }
 
 ul,
@@ -38,7 +42,7 @@ li {
 
 * {
   box-sizing: border-box;
-  background-color: $white;
+  background-color: $offwhite;
 }
 
 $grid-breakpoints: (
