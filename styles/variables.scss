@@ -43,6 +43,11 @@ li {
 * {
   box-sizing: border-box;
   background-color: $offwhite;
+
+}
+
+.main {
+  width : 60%;
 }
 
 $grid-breakpoints: (
