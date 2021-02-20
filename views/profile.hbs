@@ -1,16 +1,27 @@
-{{#if user.picture}}
-<img src="{{user.picture}}" alt="{{user.name}}" class="profile-picture" />
-{{/if}}
-<h4>{{user.name}}</h4>
-<h4>{{user.email}}</h4>
 
 
-<h3>Favorite podcasts</h3>
-{{#each favorites}}
-    <img src="{{image}}" alt="{{title}}"><a href="/favorite/{{_id}}">{{title}}</a>
-{{/each}}
+<div class="container">
+  <div class="d-flex justify-content-center ">
+  <div class="">
+    <div class="card-profile ">
+      <p>
+        {{#if user.picture}}
+            <img src="{{user.picture}}" alt="{{user.name}}" class="rounded float-start" />
+        {{/if}}
+      </p>
+      
+        
+        <h3>Name</h4>
+          <p>{{user.name}}</p>
+        <h3>Your email</h4>
+          <p>{{user.email}}</p>
+        
+            <a href="/favorite/favorites-list">Click here to see your favorites' list</a>
+    
+      </div>
+    </div>
+  </div>
+</div>
 
 
-
-<form action="/authentication/sign-out" method="POST"><button>Sign Out</button>
 

@@ -25,8 +25,8 @@ router.get('/result-shuffle', async (req, res, next) => {
 
 router.get('/result-shuffle-filtered', async (req, res, next) => {
   const length = req.query.duration || 30;
-  const genreId = req.query.category || "Entertainment";
-  const language = req.query.language || "English";
+  const genreId = req.query.category || 'Entertainment';
+  const language = req.query.language || 'English';
   const keywordQuery = req.query.q;
   try {
     const response = await axios.get(
@@ -64,23 +64,22 @@ router.get('/result-shuffle-filtered', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-    try {
-      const id = await req.params.id;
-      const response = await axios.get(
-        `https://listen-api.listennotes.com/api/v2/episodes/${id}`,
-        {
-          headers: {
-            'X-ListenAPI-Key': `${listenNotesApiKey}`
-          }
+  try {
+    const id = await req.params.id;
+    const response = await axios.get(
+      `https://listen-api.listennotes.com/api/v2/episodes/${id}`,
+      {
+        headers: {
+          'X-ListenAPI-Key': `${listenNotesApiKey}`
         }
-      );
-      const episode = response.data;
-      console.log(episode)
-      res.render('single-episode', { episode });
-    } catch (error) {
-      next(error);
-    }
-  });
+      }
+    );
+    const episode = response.data;
+    res.render('single-episode', { episode });
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.get('/podcast', (req, res, next) => {
   res.render('single-podcast');
@@ -99,9 +98,14 @@ router.get('/podcast/:id', async (req, res, next) => {
     );
     const podcast = response.data;
     const currentUser = req.user;
-    const isFavorited = await Favorite.find( { favoritePodcastId: id, user: currentUser } );
+    const isFavorited = await Favorite.find({
+      favoritePodcastId: id,
+      user: currentUser
+    });
 
-    res.render('single-podcast', { podcast, isFavorited });
+    console.log("MY FAVORITE OBJECT",isFavorited)
+
+    res.render('single-podcast', { podcast, isFavorited  });
   } catch (error) {
     next(error);
   }

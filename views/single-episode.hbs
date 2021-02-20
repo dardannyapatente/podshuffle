@@ -1,38 +1,56 @@
 
-<section class="singlepage" id="singplepage">
-    <div id="singlepageBg" class="singlepage-bg"></div>
-      <div class="container">
+
+<div class="container">
         <div class="row">
-          <div class="singlepage-inner" id="singlepageInner">
-            <div class="content">
-              <div class="content-inner">
-				  
-                  <div class="image">
-                   <img id="cover" src="{{episode.image}}" alt="{{episode.title}}">
-                  </div>
-					<div class="player">
-                  <audio  controls autoplay preload="metadata" style=" width:400px;">
-					<source src={{episode.audio}} type="audio/mpeg" >
-					</audio>
-				</div>		
-					<h2>{{episode.title}}</h3>
-					<h3>{{episode.podcast.publisher}}</h4>
-					<p>{{episode.description}}</p>
-				
-				<div clas="button-row">
-				  <a href="/episode/podcast/{{episode.podcast.id}}">View Podcast Info</a>
+            <div class="col-6" id="content-image">
+              <div class="content-episode">
                 
-				{{#if user}}
-				<a class="shuffle-button" href="/episode/result-shuffle-filtered?keywordQuery={{keywordQuery}}&length={{length}}&genreId={{genreId}}&language={{language}}">Shuffle again</a>
-				{{/if}}
-                    </div>
+                <div class="image">
+                   <img id="episode-image" class="rounded float-end" src="{{episode.image}}" style="width:300px;" alt="{{episode.title}}">
+                 
                 </div>
+                
               </div>
             </div>
+
+            <div class="col-6" id="content-audio" >
+              <div class="episode-info">
+
+                 
+
+                  <div class="episode-title">
+                    <h2>{{episode.title}}</h2>
+                  </div>
+                  <div class="episode-publisher">
+                    <h5> By {{episode.podcast.publisher}}</h5>
+                  </div>
+                  <div class="player">
+                    <audio  controls autoplay preload="metadata" style=" width:400px;">
+					          <source src={{episode.audio}} type="audio/mpeg" >
+					          </audio>
+                  </div> 
+                  <br>
+                  <div class="podcast-info">
+                    <a href="/episode/podcast/{{episode.podcast.id}}">VIEW PODCAST</a>
+                  </div>
+                
+            </div>
           </div>
+
+        <div class="row">
+            <div class="col" >
+            </div>
+            <div class="col-6" id="shuffle-again-button">
+              {{#if user}}
+				        <a class="shuffle-button" href="/episode/result-shuffle-filtered?keywordQuery={{keywordQuery}}&length={{length}}&genreId={{genreId}}&language={{language}}">Shuffle again</a>
+				      {{else}}
+              
+              <div class="shuffle-button">
+                    <a href="/episode/result-shuffle">Shuffle again</a>
+                </div> 
+                {{/if}}
+            </div>
+            <div class="col" >
+
+            </div>
         </div>  
-      </div>
-    </div>
- </section>
-
-
