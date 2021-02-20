@@ -15,7 +15,7 @@
 
 {{#if user}}
     {{#if isFavorited}}
-        <form action="/favorite/{{favorite._id}}/delete" method="POST">
+        <form action="/favorite/{{favorite._id}}/delete-favorite" method="POST">
         <button><img src="https://images.emojiterra.com/twitter/v13.0/512px/2764.png" alt="Favorited"></button>
         </form>
     {{else}}
