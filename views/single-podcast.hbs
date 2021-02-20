@@ -24,7 +24,8 @@
         </form>
     {{/if}}
 {{/if}}
-
+<img src="./images/heart-full.png" style="50px" alt="Favorited">
+<img src=".public/images/heart -empty.png" style="50px" alt="Unfavorited">
 -->
 
 <div class="container">
@@ -32,29 +33,31 @@
             
               <div class="content-image">
 
-                <div class="image"></div>
+                <div class="image">
                    <img id="podcast-image" class="rounded mx-auto d-block" src="{{podcast.image}}" style="width:200px;" alt="{{podcast.title}}">
-                 
                 </div>
+
+                <div class="podcast-favorite">
+                    
+                  {{#if user}}
+                    {{#if isFavorited}}
+                         <i class="fas fa-heart"></i>
+                         
+                        {{else}}
+                    <form action="/favorite/{{podcast.id}}/add-to-favorites" method="POST">
+                       <button>Add to favorites</button>
+                    </form>
+                    {{/if}}
+                {{/if}}
+                  </div>
+                
+
 
               </div>
               
               <div class="content-podcast">
                 
-                <div class="podcast-favorite">
-                    
-                  {{#if user}}
-                    {{#if isFavorited}}
-                        <form action="/favorite/{{favorite._id}}/delete" method="POST">
-                         <button><img src="./images/heart-full.png" style="50px" alt="Favorited"></button>
-                        </form>
-                {{else}}
-                    <form action="/favorite/{{podcast.id}}/add-to-favorites" method="POST">
-                        <button><img src=".public/images/heart -empty.png" style="50px" alt="Unfavorited"></button>
-                    </form>
-                    {{/if}}
-                {{/if}}
-                  </div>
+                
 
                    <div class="podcast-title">
                        <h3>{{podcast.title}}   by {{podcast.publisher}}
