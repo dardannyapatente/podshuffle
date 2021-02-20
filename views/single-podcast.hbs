@@ -1,32 +1,4 @@
 
-<!--
-    <div>
-<img src="{{podcast.image}}" alt="{{podcast.title}}">
-</div>
-
-<h3>{{podcast.title}}</h3>
-<h4>{{podcast.publisher}}</h4>
-<ul>
-    <h3>Most recente episodes:</h3>
-    {{#each podcast.episodes}}</ul>
-        <li><a href="/episode/{{id}}">{{title}}</a></li>
-    {{/each}}
-</ul>
-
-{{#if user}}
-    {{#if isFavorited}}
-        <form action="/favorite/{{favorite._id}}/delete-favorite" method="POST">
-        <button><img src="https://images.emojiterra.com/twitter/v13.0/512px/2764.png" alt="Favorited"></button>
-        </form>
-    {{else}}
-        <form action="/favorite/{{podcast.id}}/add-to-favorites" method="POST">
-        <button><img src="https://www.clipartmax.com/png/full/424-4246189_empty-heart-png.png" alt="Unfavorited"></button>
-        </form>
-    {{/if}}
-{{/if}}
-<img src="./images/heart-full.png" style="50px" alt="Favorited">
-<img src=".public/images/heart -empty.png" style="50px" alt="Unfavorited">
--->
 
 <div class="container">
         <div class="row">
@@ -39,13 +11,14 @@
 
                 <div class="podcast-favorite">
                     
-                  {{#if user}}
+                {{#if user}}
                     {{#if isFavorited}}
-                         <i class="fas fa-heart"></i>
-                         
+                        <form action="/favorite/{{isFavorited._id}}/delete" method="POST">
+                            <button class="heart-btn">♥️</button>
+                        </form>
                         {{else}}
                     <form action="/favorite/{{podcast.id}}/add-to-favorites" method="POST">
-                       <button>Add to favorites</button>
+                        <button class="add-btn">Add to favorite</button>
                     </form>
                     {{/if}}
                 {{/if}}
@@ -60,27 +33,23 @@
                 
 
                    <div class="podcast-title">
-                       <h3>{{podcast.title}}   by {{podcast.publisher}}
+                       <h3>{{podcast.title}} by {{podcast.publisher}}
                        </h3>
                    </div>
 
                    <div class="podcast-description">
-                       <p>Description : {{podcast.description}}
+                       <p><strong>Description:</strong> {{podcast.description}}
                        </p>
                    </div>
 
-
                 <div class="episode-list">
                 <ul>
-                    <p>Most recent episodes :</p>
+                    <p>Most recent episodes:</p>
                     {{#each podcast.episodes}}</ul>
-                        <li><a href="/episode/{{id}}">{{title}}</a></li>
+                        <li><a href="/episode/{{id}}">» {{title}}</a></li>
                     {{/each}}
                 </ul>
-               
                 </div>
-            
-
         </div>
     </div>
 </div>

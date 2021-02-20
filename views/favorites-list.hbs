@@ -1,18 +1,25 @@
-<h1>MY FAVORITES</h1>
+
+<div class="container">
+        <div class="row">
+<h1>Favorite podcasts</h1>
 
 {{#each favorites}}
+<div class="podcast-content">
 <ul>
     <li>
+      <img id="favorite" class="rounded mx-auto d-block" src="{{favoritePodcastImage}}" alt="{{favoritePodcastTitle}}" />
       <a href="/episode/podcast/{{favoritePodcastId}}">
-        <img src="{{favoritePodcastImage}}" alt="{{favoritePodcastTitle}}">
             <h4>{{favoritePodcastTitle}}</h4>
       </a>
     </li>
 </ul>
-<form action="/favorite/{{_id}}/delete" method="POST">
-<button><img src="https://images.emojiterra.com/twitter/v13.0/512px/2764.png" alt="Favorited"></button>
+
+<form action="/favorite/{{isFavorited._id}}/delete" method="POST">
+  <button id="heart-btn">♥️</button>
 </form>
 {{/each}}
 
+        </div>
+      </div>
 
 

@@ -98,7 +98,7 @@ router.get('/podcast/:id', async (req, res, next) => {
     );
     const podcast = response.data;
     const currentUser = req.user;
-    const isFavorited = await Favorite.find({
+    const isFavorited = await Favorite.findOne({
       favoritePodcastId: id,
       user: currentUser
     });
