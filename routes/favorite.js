@@ -73,16 +73,6 @@ router.post('/:id/delete', routeGuard, (req, res, next) => {
     });
 });
 
-router.post('/:id/delete-favorite', routeGuard, (req, res, next) => {
-  const id = req.params.id;
-  Favorite.findByIdAndDelete(id)
-    .then(() => {
-      res.redirect(`/episode/podcast/${id}`);
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
 
 
 

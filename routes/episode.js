@@ -103,8 +103,6 @@ router.get('/podcast/:id', async (req, res, next) => {
       user: currentUser
     });
 
-    console.log("MY FAVORITE OBJECT",isFavorited)
-
     res.render('single-podcast', { podcast, isFavorited  });
   } catch (error) {
     next(error);
