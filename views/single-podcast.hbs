@@ -45,10 +45,12 @@
                     
                 {{#if user}}
                     {{#if isFavorited}}
-                    <img src="./images/heart-full.png" style="50px" alt="Favorited"></button>
+                        <form action="/favorite/{{isFavorited._id}}/delete" method="POST">
+                            <button>♥️</button>
+                        </form>
                         {{else}}
                     <form action="/favorite/{{podcast.id}}/add-to-favorites" method="POST">
-                        <button><img src=".public/images/heart -empty.png" style="50px" alt="Unfavorited"></button>
+                        <button>🤍</button>
                     </form>
                     {{/if}}
                 {{/if}}
