@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row">
-    <h1 style="align-items: center;">MY FAVORITE PODCASTS</h1>
+    <h1>MY FAVORITES ♥️</h1>
     {{#each favorites}}
       <div class="podcast-content">
         <ul>
           <li>
-            <img id="favorite" class="rounded mx-auto d-block" src="{{favoritePodcastImage}}" alt="{{favoritePodcastTitle}}" />
+            <img id="favorite" src="{{favoritePodcastImage}}" alt="{{favoritePodcastTitle}}" />
             <a href="/episode/podcast/{{favoritePodcastId}}">
-                  <h4>{{favoritePodcastTitle}}</h4>
+                  <p>{{favoritePodcastTitle}}</p>
             </a>
           </li>
         </ul>
-      </div>
       <form action="/favorite/{{_id}}/delete" method="POST">
-        <button class="heart-btn" style="align-items: center;">♥️</button>
+      <button class="heart-btn-fav">♥️</button>
       </form>
     {{/each}}
+    </div>
   </div>
 </div>

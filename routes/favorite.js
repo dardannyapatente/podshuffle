@@ -39,7 +39,6 @@ router.get('/favorites-list', routeGuard, (req, res, next) => {
   Favorite.find( { user: currentUser } )
   .then((favorites) => {
     if (favorites) {
-      console.log(favorites);
       res.render('favorites-list', { favorites });
     } else {
       res.render('error')

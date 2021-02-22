@@ -3,49 +3,64 @@
 .container {
   height: 85vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   color: $black;
-  margin-bottom: 20px;
 
   .row {
+    // margin-left: auto;
+    // margin-right: auto;
+    // margin-bottom: 90px;
+    // margin-top: 20px;
     margin: auto;
-    border-bottom: 1px solid $black;
+    display: flex;
   }
 
   h1 {
     color: black;
-    font-size: 1em;
+    font-size: 1.8em;
     line-height: 1em;
     text-align: center;
     font-weight: 500;
     position: relative;
+    margin-bottom: 50px;
   }
 
   .podcast-content {
-    text-align: center;
+    width: 250px;
+    height: 350px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 380px;
+    border: 0.1px solid grey;
+    border-radius: 15%;
+
+
+      p {
+        margin-top: 20px;
+        font-size: 15px;
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-left: 60px;
+      }
+
     #favorite {
-      width: 250px;
+      width: 140px;
+      height: 130px;;
       visibility: show;
       border: transparent;
       border-radius: 20%;
-      position: relative;
-      z-index: 100;
+      margin-left: 60px;
+      margin-top: 20px;
     }
 
-    .heart-btn {
+    .heart-btn-fav {
       text-decoration: none;
       color: none;
       background: none;
-      font-size: 50px;
-      margin-bottom: 50px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .content-podcast {
-      padding-bottom: 50px;
-      margin: auto;
+      font-size: 40px;
+      margin-top: 0;
+      margin-left: 15x;
     }
 
     a {
@@ -55,7 +70,7 @@
       text-align: center;
       font-weight: 500;
       position: relative;
-      margin-top: 30px;
+      margin-top: 0px;
     }
   }
 }

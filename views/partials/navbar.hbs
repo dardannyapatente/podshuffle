@@ -1,14 +1,12 @@
-
-
 <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
     <a id="logo" class="navbar-brand" href="/">podshuffle</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <div >
       {{#if user}}
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+      <ul class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/home-auth">Home</a>
         </li>
@@ -18,21 +16,18 @@
         <li class="nav-item">
           <a class="nav-link" href="/favorite/favorites-list">Favorites</a>
         </li>
-        <li class="nav-item">
+        {{!-- <li class="nav-item">
           <a class="nav-link" href="/profile">Profile</a>
-        </li>
+        </li> --}}
 
-      
-
-
-
-      
          <li class="nav-item">
           <form action="/authentication/sign-out" method="POST" >
-            <button id="sign-out">Sign Out</button>
+            <button class="nav-link" id="sign-out">Sign Out</button>
           </form>
         </li>
+        </ul>
       {{else}}
+      <ul class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>

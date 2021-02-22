@@ -17,9 +17,9 @@ router.get('/about', (req, res, next) => {
   res.render('about', { title: 'About us' });
 });
 
-router.get('/profile', routeGuard, (req, res, next) => {
-  res.render('profile');
-});
+// router.get('/profile', routeGuard, (req, res, next) => {
+//   res.render('profile');
+// });
 
 router.get('/home-auth', routeGuard, (req, res, next) => {
   res.render('home-auth', {

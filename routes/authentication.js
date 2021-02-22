@@ -158,7 +158,7 @@ router.post('/sign-in', (req, res, next) => {
         req.session.userId = user._id;
         res.redirect('/home-auth');
       } else {
-        return Promise.reject(new Error('Wrong password.'));
+        return Promise.reject(new Error('Wrong password. Try again.'));
       }
     })
     .catch((error) => {

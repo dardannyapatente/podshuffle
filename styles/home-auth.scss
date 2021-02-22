@@ -8,40 +8,45 @@
   color: $black;
 
   .row {
-    margin: 25px 30px;
+    margin: 40px 30px; 
+
+    #content {
+      padding-top: 0;
+      margin-top: 0;
+    }
   }
 
   .content-inner {
     font-style: $font-sans;
-    margin-top: 30px;
-  }
+    margin-top: 10px;
 
   h1 {
     color: $black;
     font-size: 2.6em;
     line-height: 3rem;
-    margin-top: 40px 0 0;
-
+    margin-top: 10px;
     margin-bottom: 25px;
+    margin-right: 170px;
+  }
   }
 
   .line {
     overflow: hidden;
     height: 50px;
     position: relative;
+    margin-left: 60px;
   }
 
   .text {
     font-size: 1rem;
     line-height: 1.6rem;
     font-weight: 300;
-
     position: relative;
     color: grey;
   }
 
   .filter {
-    margin-top: 20px;
+    margin-top: 30px;
 
     input[type='search'] {
       border: 1.3px solid $black;
@@ -50,6 +55,7 @@
       width: 210px;
       padding: 0 10px;
       background: transparent;
+      margin-right: 10px;
     }
 
     select {
@@ -58,15 +64,17 @@
       margin-bottom: 10px;
       padding: 0 10px;
       background: transparent;
+      margin-right: 10px;
 
       #input-category {
-        width: 110px;
+        width: 90px;
       }
 
       #input-language,
       #input-duration {
         width: 80px;
-        margin-right: 20px;
+        margin-right: 30px;
+
       }
     }
   }
@@ -78,7 +86,7 @@
     font-size: 1rem;
     margin-top: 20px;
     margin-left: 0px;
-    padding: 0 32px;
+    padding: 0 28px;
     text-decoration: none;
     font-weight: 600;
     color: $white;

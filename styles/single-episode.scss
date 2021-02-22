@@ -2,26 +2,30 @@
 
 
 .container {
-    
-  height:85vh;
+
+  height: 85vh;
   display: flex;
   align-items: center;
   justify-content: start;
   color:$black;
+  padding-right: 70px;
 
-  .content-image{
+  .content-episode {
+    padding-left: 120px;
+    margin-right: 0;
+  }
 
-  .episode-image{
+  #content-image{
+    padding-right: 0;
+    margin-right: 0;
+
+
   img {
     visibility: show;
-    margin: 10px 30px;
     border: transparent;
     border-radius: 20%;
-    position: relative;
     z-index: 100;
-    margin-left : 500px;
   }
-  
   
     a {
       font-size: 0.875em;
@@ -36,11 +40,10 @@
       width: 200px;
       border: 1.3px solid $black;
       border-radius: 100px;
-    }
-  }
-  
+    } 
 }
-  .content-audio{
+  #content-audio{
+    margin-left: 0;
 
   .player {
     display:flex;
@@ -82,8 +85,10 @@
  }
 
 
+  #shuffle-again-button {
+    margin-left: 230px;
+    margin-top: 50px;
 
-  .shuffle-again-button {
     a {
       height: 40px;
       line-height: 40px;

@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: start;
   color: $black;
+  align-items: center;
 
   .row {
     margin: 30px 40px;
@@ -19,13 +20,16 @@
     color: $black;
     font-size: 2.6em;
     line-height: 3rem;
-    margin-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    margin-right: 170px;
   }
 
   .line {
     overflow: hidden;
-    height: 50px;
+    height: 70px;
     position: relative;
+    font-size: 40px;
   }
 
   .text {
@@ -42,9 +46,9 @@
       height: 40px;
       line-height: 40px;
       font-size: 1rem;
-      padding: 0 32px;
+      padding: 0 0px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       color: $white;
       background: $redOrange;
       border-radius: 100px;

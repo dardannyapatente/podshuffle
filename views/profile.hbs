@@ -1,25 +1,17 @@
 
 
 <div class="container">
-  <div class="d-flex justify-content-center ">
+  <div class="d-flex" style="justify-content-center">
   <div class="">
-    <div class="card-profile ">
-      <p>
+    <div class="card-profile">
         {{#if user.picture}}
             <img src="{{user.picture}}" alt="{{user.name}}" class="rounded float-start" />
         {{/if}}
-      </p>
       
-        
-        <h3>Name</h4>
           <p>{{user.name}}</p>
-        <h3>Your email</h4>
           <p>{{user.email}}</p>
-        <br>
-        <br>
-        <br>
-            <a href="/favorite/favorites-list">Click here to see your favorites' list</a>
       </div>
+          <button><a href="/favorite/favorites-list">Go to favorites</a></button>
     </div>
   </div>
 </div>

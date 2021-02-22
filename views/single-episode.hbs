@@ -1,12 +1,10 @@
-
-
 <div class="container">
         <div class="row">
             <div class="col-6" id="content-image">
               <div class="content-episode">
                 
                 <div class="image">
-                   <img id="episode-image" class="rounded float-end" src="{{episode.image}}" style="width:300px;" alt="{{episode.title}}">
+                   <img id="episode-image" src="{{episode.image}}" style="width:300px;" alt="{{episode.title}}">
                  
                 </div>
                 
@@ -42,9 +40,8 @@
             </div>
             <div class="col-6" id="shuffle-again-button">
               {{#if user}}
-				        <a class="shuffle-button" href="/episode/result-shuffle-filtered?keywordQuery={{keywordQuery}}&length={{length}}&genreId={{genreId}}&language={{language}}">Shuffle again</a>
+				        <a href="/episode/result-shuffle-filtered?keywordQuery={{keywordQuery}}&length={{length}}&genreId={{genreId}}&language={{language}}" class="shuffle-button">Shuffle again</a>
 				      {{else}}
-              
               <div class="shuffle-button">
                     <a href="/episode/result-shuffle">Shuffle again</a>
                 </div> 
