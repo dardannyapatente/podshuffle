@@ -1,13 +1,11 @@
-@import "./variables.scss";
-
+@import './variables.scss';
 
 .container {
-
   height: 85vh;
   display: flex;
   align-items: center;
   justify-content: start;
-  color:$black;
+  color: $black;
   padding-right: 70px;
 
   .content-episode {
@@ -15,19 +13,18 @@
     margin-right: 0;
   }
 
-  #content-image{
+  #content-image {
     padding-right: 0;
     margin-right: 0;
     margin-top: 50px;
 
+    img {
+      visibility: show;
+      border: transparent;
+      border-radius: 20%;
+      z-index: 100;
+    }
 
-  img {
-    visibility: show;
-    border: transparent;
-    border-radius: 20%;
-    z-index: 100;
-  }
-  
     a {
       font-size: 0.875em;
       padding: 0 20px;
@@ -41,64 +38,63 @@
       width: 200px;
       border: 1.3px solid $black;
       border-radius: 100px;
-    } 
-}
-  #content-audio{
+    }
+  }
+  #content-audio {
     margin-left: 0;
     margin-top: 50px;
 
-  .player {
-    display:flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    .player {
+      display: flex;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
   }
   .episode-title {
     h2 {
-    color: black;
-    font-size: 1.3em;
-    line-height: 1em;
-    font-weight: 500;
-    position: relative;
-    margin-top: 30px;
+      color: black;
+      font-size: 1.3em;
+      line-height: 1em;
+      font-weight: 500;
+      position: relative;
+      margin-top: 30px;
     }
   }
 
   .episode-publisher {
     h5 {
-    color: black;
-    font-size: 1em;
-    font-weight: 300;
-    position: relative;
-    margin: 30px 0;
+      color: black;
+      font-size: 1em;
+      font-weight: 300;
+      position: relative;
+      margin: 30px 0;
     }
   }
 
   .podcast-info {
     p {
-    color: black;
-    font-size: 0.875em;
-    font-weight: 300;
-    position: relative;
-    margin-top: 20px;
-    margin-bottom: 10px;
+      color: black;
+      font-size: 0.875em;
+      font-weight: 300;
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 10px;
     }
   }
- }
+}
 
+#shuffle-again-button {
+  margin-left: 300px;
+  margin-top: 50px;
 
-  #shuffle-again-button {
-    margin-left: 300px;
-    margin-top: 50px;
-
-    a {
-      height: 40px;
-      line-height: 40px;
-      font-size: 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      color: $white;
-      background: $redOrange;
-      border-radius: 100px; 
-    }
+  a {
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+    color: $white;
+    background: $redOrange;
+    border-radius: 100px;
   }
+}

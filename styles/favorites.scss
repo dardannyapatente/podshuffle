@@ -13,7 +13,11 @@
     // margin-bottom: 90px;
     // margin-top: 20px;
     margin: auto;
-    display: flex;
+
+    .row-1 {
+      width: 1100px;
+      height: 800px;
+    }
   }
 
   .content-image {
@@ -28,26 +32,28 @@
     font-weight: 500;
     position: relative;
     margin-bottom: 50px;
+    margin-top: 70px;
+    margin-left: -35px;
   }
 
   .podcast-content {
-    width: 250px;
-    height: 350px;
+    height: 300px;
     display: flex;
     flex-direction: row;
-    margin-right: 110px;
     margin-left: 20px;
     float: left;
-    width: 25%;
-    padding: 0 10px;
-    // border: 1px solid grey;
-    // border-radius: 15%;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+
 
     p {
-      margin-top: 20px;
+      margin-top: 0px;
+      padding-top: 10px;
       font-size: 15px;
       margin-bottom: 0;
-      margin-top: 0;
       margin-left: 10px;
     }
 
@@ -66,9 +72,9 @@
       text-decoration: none;
       color: none;
       background: none;
-      font-size: 40px;
-      margin-top: 20px;
-      margin-left: 3x;
+      font-size: 35px;
+      margin-top: 0px;
+      margin-left: 10px;
     }
 
     a {

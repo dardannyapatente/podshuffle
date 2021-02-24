@@ -1,11 +1,10 @@
-@import "./variables.scss";
-
+@import './variables.scss';
 
 .container {
-  height:85vh;
+  height: 85vh;
   display: flex;
   align-items: center;
-  color:$black;
+  color: $black;
   margin-bottom: 20px;
   position: relative;
 
@@ -26,71 +25,59 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 2px;
-    
+
     .heart-btn {
-        text-decoration: none;
-        color: none;
-        background: none;
-        font-size: 40px;
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 0;
-        margin-left: 450px;
-      }
+      text-decoration: none;
+      color: none;
+      background: none;
+      font-size: 40px;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0;
+      margin-left: 450px;
+    }
 
     .add-btn {
-    height: 40px;
-    line-height: 40px;
-    font-size: 1rem;
-    padding: 0 20px;
-    text-decoration: none;
-    font-weight: 600;
-    color: $white;
-    background: $redOrange;
-    border-radius: 100px;
-    margin-top: 0;
-    margin-left: 395px;
-  }
+      height: 40px;
+      line-height: 40px;
+      font-size: 1rem;
+      padding: 0 20px;
+      text-decoration: none;
+      font-weight: 600;
+      color: $white;
+      background: $redOrange;
+      border-radius: 100px;
+      margin-top: 0;
+      margin-left: 395px;
+    }
   }
 
   .content-podcast {
     padding-bottom: 50px;
     margin: auto;
     display: flex;
-    }
-    
+  }
+
   .podcast-title {
     color: black;
     font-size: 1em;
     line-height: 1em;
     text-align: center;
     font-weight: 500;
-    position: relative; 
+    position: relative;
   }
 
-  .episode-list{
-   width: 50vw;
-   margin-bottom: 100px;
-   flex-direction: column;
-   display: flex;
-   margin-left: 160px;
-   margin-top: 0;
+  .episode-list {
+    width: 50vw;
+    margin-bottom: 100px;
+    flex-direction: column;
+    display: flex;
+    margin-left: 160px;
+    margin-top: 0;
 
-   h3 {
-     margin-top: 40px;
-     margin-bottom: 10px;
-   }
+    h3 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
   }
 }
-    
-  
-
-
-
-
-
-
-
-
-
-

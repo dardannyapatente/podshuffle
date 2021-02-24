@@ -3,6 +3,8 @@
   <div class="row">
     <h1>MY FAVORITES ♥️</h1>
     {{#each favorites}}
+    <div class="row-1">
+    <div class="column-1">
       <div class="podcast-content">
         <ul>
           <li>
@@ -14,8 +16,10 @@
       <form action="/favorite/{{_id}}/delete" method="POST">
       <button class="heart-btn-fav">♥️</button>
       </form>
+          </div>
         </ul>
     {{/each}}
+    </div>
     </div>
   </div>
 </div>
