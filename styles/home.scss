@@ -7,6 +7,7 @@
   justify-content: start;
   color: $black;
   align-items: center;
+  padding-bottom: 60px;
 
   .row {
     margin: 30px 40px;
@@ -24,6 +25,7 @@
     margin-top: 10px;
     margin-bottom: 25px;
     margin-right: 170px;
+
   }
 
   .line {
@@ -37,7 +39,6 @@
     font-size: 1rem;
     line-height: 1.6rem;
     font-weight: 300;
-
     position: relative;
     color: grey;
   }
@@ -49,7 +50,7 @@
       font-size: 1rem;
       padding: 0 0px;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       color: $white;
       background: $redOrange;
       border-radius: 100px;

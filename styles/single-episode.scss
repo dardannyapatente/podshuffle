@@ -18,6 +18,7 @@
   #content-image{
     padding-right: 0;
     margin-right: 0;
+    margin-top: 50px;
 
 
   img {
@@ -44,6 +45,7 @@
 }
   #content-audio{
     margin-left: 0;
+    margin-top: 50px;
 
   .player {
     display:flex;
@@ -86,19 +88,17 @@
 
 
   #shuffle-again-button {
-    margin-left: 230px;
+    margin-left: 300px;
     margin-top: 50px;
 
     a {
       height: 40px;
       line-height: 40px;
       font-size: 1rem;
-      padding: 0 32px;
       text-decoration: none;
       font-weight: 600;
       color: $white;
       background: $redOrange;
-      border-radius: 100px;
-      margin-right: 10px;
+      border-radius: 100px; 
     }
   }
