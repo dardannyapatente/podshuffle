@@ -57,7 +57,7 @@ router.post(
             from: process.env.GMAIL_ADDRESS,
             to: data.email,
             subject: 'Welcome to PodSuffle',
-              html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
               <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB">
               <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -74,14 +74,14 @@ router.post(
                   <tr>
                     <td style="padding: 20px 0 30px 0;">
               
-              <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
+              <table align="center" border="0" cellpadding="0" cellspacing="0" width="500" style="border-collapse: collapse; border: 1px solid #cccccc;">
                 <tr>
-                  <td align="center" bgcolor="white" style="padding: 40px 0 30px 0;">
-                    <img src="https://www.litmus.com/wp-content/uploads/2020/04/6-steps-welcome-email-header2.png" alt="Welcome email." width="300" height="230" style="display: block;" />
+                  <td align="center" bgcolor="white" style="padding: 20px 0 30px 0;">
+                    <img src="https://rampart.asd20.org/PublishingImages/email%20icon.png" alt="Welcome email." width="200" height="230" style="display: block;" />
                   </td>
                 </tr>
                 <tr>
-                  <td bgcolor="#ffffff" style="padding: 40px 30px 100px 30px;">
+                  <td bgcolor="#ffffff" style="padding: 20px 30px 100px 30px;">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                       <tr>
                         <td style="color: #153643; font-family: Arial, sans-serif;">
@@ -94,16 +94,15 @@ router.post(
                         </td>
                       </tr>
                     </table>
-                    <div style="text-align: center; margin-right: 34%;">
-                        <a href="https://ironhack-podcast-app.herokuapp.com" target="_blank"><button class="shuffle-button" style="display: inline-block; background-color: #d57868; color: white; height: 55px; width: 180px; align-self: center; font-size: large; align-items: center; position: absolute;">Go to PodShuffle</button></a>
+                    <div style="text-align: center; margin-right: 39%;">
+                    <a href="https://podshuffle.herokuapp.com" target="_blank"><button style="display: inline-block; background-color: white; color: black; border-color: black; height: 50px; width: 180px; align-self: center; font-size: large; align-items: center; position: absolute;">Go to PodShuffle</button></a>
                     </div>
-              
                 <tr>
-                  <td bgcolor="#d57868" style="padding: 20px 30px;">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                  <td bgcolor="white" style="padding: 20px 30px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" >
                       <tr>
-                        <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;">
-                          <p style="margin: 0;">&reg; PodShuffle, 2021<br/>
+                        <td style="color: #153643; font-family: Arial, sans-serif; font-size: 14px;">
+                          <p style="margin: 0; padding-top: 0px;">&reg; PodShuffle, 2021<br/>
                         </td>
                         <td align="right">
                           <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
@@ -119,13 +118,11 @@ router.post(
                   </td>
                 </tr>
               </table>
-              
                     </td>
                   </tr>
                 </table>
               </body>
               </html>
-              
               `
           })
           .then((result) => {
@@ -134,8 +131,9 @@ router.post(
           .catch((error) => {
             console.log('There was an error sending email.');
           });
-      })
-   });
+      });
+  }
+);
 
 router.get('/sign-in', (req, res, next) => {
   res.render('authentication/sign-in');
@@ -144,7 +142,7 @@ router.get('/sign-in', (req, res, next) => {
 router.post('/sign-in', (req, res, next) => {
   let user;
   const data = req.body;
-  User.findOne({ email: data.email})
+  User.findOne({ email: data.email })
     .then((document) => {
       if (!document) {
         return Promise.reject(new Error("There's no user with that email."));
