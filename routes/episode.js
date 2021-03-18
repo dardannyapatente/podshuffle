@@ -27,7 +27,10 @@ router.get('/result-shuffle-filtered', async (req, res, next) => {
   const length = req.query.duration || 30;
   const genreId = req.query.category || 'Entertainment';
   const language = req.query.language || 'English';
-  const keywordQuery = req.query.q;
+  const keywordQuery = req.query.keywordQuery;
+
+  console.log('QUERY PARAMS', length, genreId, language, keywordQuery);
+
   try {
     const response = await axios.get(
       `https://listen-api.listennotes.com/api/v2/search?q=${keywordQuery}&type=episode&len_max=${length}&genre_ids=${genreId}&language=${language}`,
